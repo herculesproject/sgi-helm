@@ -58,6 +58,9 @@ sgi-usr-service:
   ## Should be enabled and set the correct hostname to be accesible from outside
   ingress:
     enabled: true
+    annotations:
+      kubernetes.io/ingress.class: nginx
+      nginx.ingress.kubernetes.io/rewrite-target: /$2
     hosts:
       - host: demo.hercules-sgi.com
         paths:
@@ -102,6 +105,9 @@ sgi-eer-service:
   ## Should be enabled and set the correct hostname to be accesible from outside
   ingress:
     enabled: true
+    annotations:
+      kubernetes.io/ingress.class: nginx
+      nginx.ingress.kubernetes.io/rewrite-target: /$2
     hosts:
       - host: demo.hercules-sgi.com
         paths:
@@ -171,6 +177,9 @@ sgi-eti-service:
   ## Should be enabled and set the correct hostname to be accesible from outside
   ingress:
     enabled: true
+    annotations:
+      kubernetes.io/ingress.class: nginx
+      nginx.ingress.kubernetes.io/rewrite-target: /$2
     hosts:
       - host: demo.hercules-sgi.com
         paths:
@@ -242,6 +251,9 @@ sgi-csp-service:
   ## Should be enabled and set the correct hostname to be accesible from outside
   ingress:
     enabled: true
+    annotations:
+      kubernetes.io/ingress.class: nginx
+      nginx.ingress.kubernetes.io/rewrite-target: /$2
     hosts:
       - host: demo.hercules-sgi.com
         paths:
@@ -295,6 +307,9 @@ sgi-pii-service:
   ## Should be enabled and set the correct hostname to be accesible from outside
   ingress:
     enabled: true
+    annotations:
+      kubernetes.io/ingress.class: nginx
+      nginx.ingress.kubernetes.io/rewrite-target: /$2
     hosts:
       - host: demo.hercules-sgi.com
         paths:
@@ -339,6 +354,9 @@ sgi-rel-service:
   ## Should be enabled and set the correct hostname to be accesible from outside
   ingress:
     enabled: true
+    annotations:
+      kubernetes.io/ingress.class: nginx
+      nginx.ingress.kubernetes.io/rewrite-target: /$2
     hosts:
       - host: demo.hercules-sgi.com
         paths:
@@ -410,6 +428,9 @@ sgi-tp-service:
   ## Should be enabled and set the correct hostname to be accesible from outside
   ingress:
     enabled: true
+    annotations:
+      kubernetes.io/ingress.class: nginx
+      nginx.ingress.kubernetes.io/rewrite-target: /$2
     hosts:
       - host: demo.hercules-sgi.com
         paths:
@@ -487,6 +508,9 @@ sgi-rep-service:
   ## Should be enabled and set the correct hostname to be accesible from outside
   ingress:
     enabled: true
+    annotations:
+      kubernetes.io/ingress.class: nginx
+      nginx.ingress.kubernetes.io/rewrite-target: /$2
     hosts:
       - host: demo.hercules-sgi.com
         paths:
@@ -576,6 +600,9 @@ sgi-com-service:
   ## Should be enabled and set the correct hostname to be accesible from outside
   ingress:
     enabled: true
+    annotations:
+      kubernetes.io/ingress.class: nginx
+      nginx.ingress.kubernetes.io/rewrite-target: /$2
     hosts:
       - host: demo.hercules-sgi.com
         paths:
@@ -620,6 +647,9 @@ sgi-cnf-service:
   ## Should be enabled and set the correct hostname to be accesible from outside
   ingress:
     enabled: true
+    annotations:
+      kubernetes.io/ingress.class: nginx
+      nginx.ingress.kubernetes.io/rewrite-target: /$2
     hosts:
       - host: demo.hercules-sgi.com
         paths:
@@ -694,6 +724,9 @@ sgi-prc-service:
   ## Should be enabled and set the correct hostname to be accesible from outside
   ingress:
     enabled: true
+    annotations:
+      kubernetes.io/ingress.class: nginx
+      nginx.ingress.kubernetes.io/rewrite-target: /$2
     hosts:
       - host: demo.hercules-sgi.com
         paths:
