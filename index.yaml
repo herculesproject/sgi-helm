@@ -45,6 +45,16 @@ entries:
   sgi-keycloak:
   - apiVersion: v2
     appVersion: image
+    created: "2025-12-09T12:35:54.752885993Z"
+    description: A Helm chart for the Keycloak service for SGI.
+    digest: ad897db7402216b0c8aad5bb74242b5ab6375a9f20d97f1d1f5cda0b827e09c1
+    name: sgi-keycloak
+    type: application
+    urls:
+    - https://github.com/herculesproject/sgi-helm/releases/download/sgi-keycloak-0.1.21/sgi-keycloak-0.1.21.tgz
+    version: 0.1.21
+  - apiVersion: v2
+    appVersion: image
     created: "2025-12-09T11:30:40.649991007Z"
     description: A Helm chart for the Keycloak service for SGI.
     digest: 191b545043e8e7f1cce6d56c4949b4a8e1ba337f734f8ebbc1f7d16cf4ac15c8
@@ -85,6 +95,99 @@ entries:
     - https://github.com/herculesproject/sgi-helm/releases/download/sgi-service-0.1.10/sgi-service-0.1.10.tgz
     version: 0.1.10
   sgi-umbrella:
+  - apiVersion: v2
+    appVersion: umbrella
+    created: "2025-12-09T12:35:54.964779552Z"
+    dependencies:
+    - name: sgi-webapp
+      repository: file://../sgi-webapp
+      version: 0.1.7
+    - alias: sgi-usr-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.11
+    - alias: sgi-eer-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.11
+    - alias: sgi-eti-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.11
+    - alias: sgi-csp-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.11
+    - alias: sgi-pii-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.11
+    - alias: sgi-rel-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.11
+    - alias: sgi-tp-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.11
+    - alias: sgi-rep-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.11
+    - alias: sgi-com-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.11
+    - alias: sgi-cnf-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.11
+    - alias: sgi-prc-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.11
+    - name: sgi-keycloak
+      repository: file://../sgi-keycloak
+      version: 0.1.21
+    - name: sgi-esb
+      repository: file://../sgi-esb
+      version: 0.1.28
+    - alias: sgp-service
+      condition: sgp.enabled
+      name: sgi-esb-external
+      repository: file://../sgi-esb-external
+      version: 0.2.6
+    - alias: sgemp-service
+      condition: sgemp.enabled
+      name: sgi-esb-external
+      repository: file://../sgi-esb-external
+      version: 0.2.6
+    - alias: sgo-service
+      condition: sgo.enabled
+      name: sgi-esb-external
+      repository: file://../sgi-esb-external
+      version: 0.2.6
+    - alias: sge-service
+      condition: sge.enabled
+      name: sgi-esb-external
+      repository: file://../sgi-esb-external
+      version: 0.2.6
+    - alias: sgdoc-service
+      condition: sgdoc.enabled
+      name: sgi-esb-external
+      repository: file://../sgi-esb-external
+      version: 0.2.6
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: '@bitnami'
+      version: 12.1.9
+    description: An umbrella chart for deploying all SGI services.
+    digest: 1f9452747084187fd4b00a15371f0f046550c2e87cf2a4d96e51b18e2bbc0372
+    name: sgi-umbrella
+    type: application
+    urls:
+    - https://github.com/herculesproject/sgi-helm/releases/download/sgi-umbrella-0.1.51/sgi-umbrella-0.1.51.tgz
+    version: 0.1.51
   - apiVersion: v2
     appVersion: umbrella
     created: "2025-12-09T11:30:41.02339712Z"
@@ -292,4 +395,4 @@ entries:
     urls:
     - https://github.com/herculesproject/sgi-helm/releases/download/sgi-webapp-0.1.6/sgi-webapp-0.1.6.tgz
     version: 0.1.6
-generated: "2025-12-09T11:30:41.210131842Z"
+generated: "2025-12-09T12:35:54.964814177Z"
