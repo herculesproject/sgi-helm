@@ -38,9 +38,17 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
           - name: KEYCLOAK_USER
+            {{- if kindIs "map" .Values.settings.keycloakUser }}
+            {{- toYaml .Values.settings.keycloakUser | nindent 12 }}
+            {{- else }}
             value: {{ .Values.settings.keycloakUser }}
+            {{- end }}
           - name: KEYCLOAK_PASSWORD
+            {{- if kindIs "map" .Values.settings.keycloakPassword }}
+            {{- toYaml .Values.settings.keycloakPassword | nindent 12 }}
+            {{- else }}
             value: {{ .Values.settings.keycloakPassword }}
+            {{- end }}
           - name: PROXY_ADDRESS_FORWARDING
             value: {{ quote .Values.settings.proxyAddressForwarding }}
           - name: KEYCLOAK_MIGRATION_STRATEGY
