@@ -15,7 +15,7 @@ type: application
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 0.1.52
+version: 0.1.53
 
 # This is the version number of the application being deployed. This version number should be
 # incremented each time you make changes to the application. Versions are not expected to
@@ -26,98 +26,98 @@ appVersion: "umbrella"
 # use local dependencies
 dependencies:
   - name: sgi-webapp
-    version: 0.1.8
+    version: 0.1.9
     repository: "file://../sgi-webapp"
 
   - name: sgi-service
-    version: 0.1.12
+    version: 0.1.13
     repository: "file://../sgi-service"
     alias: sgi-usr-service
 
   - name: sgi-service
-    version: 0.1.12
+    version: 0.1.13
     repository: "file://../sgi-service"
     alias: sgi-eer-service
 
   - name: sgi-service
-    version: 0.1.12
+    version: 0.1.13
     repository: "file://../sgi-service"
     alias: sgi-eti-service
 
   - name: sgi-service
-    version: 0.1.12
+    version: 0.1.13
     repository: "file://../sgi-service"
     alias: sgi-csp-service
 
   - name: sgi-service
-    version: 0.1.12
+    version: 0.1.13
     repository: "file://../sgi-service"
     alias: sgi-pii-service
 
   - name: sgi-service
-    version: 0.1.12
+    version: 0.1.13
     repository: "file://../sgi-service"
     alias: sgi-rel-service
 
   - name: sgi-service
-    version: 0.1.12
+    version: 0.1.13
     repository: "file://../sgi-service"
     alias: sgi-tp-service
 
   - name: sgi-service
-    version: 0.1.12
+    version: 0.1.13
     repository: "file://../sgi-service"
     alias: sgi-rep-service
 
   - name: sgi-service
-    version: 0.1.12
+    version: 0.1.13
     repository: "file://../sgi-service"
     alias: sgi-com-service
 
   - name: sgi-service
-    version: 0.1.12
+    version: 0.1.13
     repository: "file://../sgi-service"
     alias: sgi-cnf-service
 
   - name: sgi-service
-    version: 0.1.12
+    version: 0.1.13
     repository: "file://../sgi-service"
     alias: sgi-prc-service
 
   - name: sgi-keycloak
-    version: 0.1.22
+    version: 0.1.23
     repository: "file://../sgi-keycloak"
 
   - name: sgi-esb
-    version: 0.1.29
+    version: 0.1.30
     repository: "file://../sgi-esb"
 
   - name: sgi-esb-external
-    version: 0.2.7
+    version: 0.2.8
     repository: "file://../sgi-esb-external"
     alias: sgp-service
     condition: sgp.enabled
 
   - name: sgi-esb-external
-    version: 0.2.7
+    version: 0.2.8
     repository: "file://../sgi-esb-external"
     alias: sgemp-service
     condition: sgemp.enabled
 
   - name: sgi-esb-external
-    version: 0.2.7
+    version: 0.2.8
     repository: "file://../sgi-esb-external"
     alias: sgo-service
     condition: sgo.enabled
 
   - name: sgi-esb-external
-    version: 0.2.7
+    version: 0.2.8
     repository: "file://../sgi-esb-external"
     alias: sge-service
     condition: sge.enabled
 
   - name: sgi-esb-external
-    version: 0.2.7
+    version: 0.2.8
     repository: "file://../sgi-esb-external"
     alias: sgdoc-service
     condition: sgdoc.enabled
