@@ -1,0 +1,152 @@
+apiVersion: v1
+entries:
+  sgi-esb:
+  - apiVersion: v2
+    appVersion: image
+    created: "2025-12-09T09:34:03.877813118Z"
+    description: A Helm chart for Kubernetes
+    digest: eeb3acb42076e1f71f71110336d3da1f05e922e18d50d4d6f799fdfd7523fbe1
+    name: sgi-esb
+    type: application
+    urls:
+    - https://github.com/herculesproject/sgi-helm/releases/download/sgi-esb-0.1.27/sgi-esb-0.1.27.tgz
+    version: 0.1.27
+  sgi-esb-external:
+  - apiVersion: v2
+    appVersion: image
+    created: "2025-12-09T09:34:04.133292736Z"
+    description: A generic Helm Chart for SGI External ESB services
+    digest: 82bf6fba520cc7363dd153518ad240d878b7d329e4f75a2d11eaf791a228e635
+    name: sgi-esb-external
+    type: application
+    urls:
+    - https://github.com/herculesproject/sgi-helm/releases/download/sgi-esb-external-0.2.5/sgi-esb-external-0.2.5.tgz
+    version: 0.2.5
+  sgi-keycloak:
+  - apiVersion: v2
+    appVersion: image
+    created: "2025-12-09T09:34:04.342455329Z"
+    description: A Helm chart for the Keycloak service for SGI.
+    digest: 6c32c65dc1c2f14c3a67c481d562f9956bfc6dd8d57827f4b7717e1472949805
+    name: sgi-keycloak
+    type: application
+    urls:
+    - https://github.com/herculesproject/sgi-helm/releases/download/sgi-keycloak-0.1.19/sgi-keycloak-0.1.19.tgz
+    version: 0.1.19
+  sgi-service:
+  - apiVersion: v2
+    appVersion: image
+    created: "2025-12-09T09:34:04.57405358Z"
+    description: A generic Helm Chart for SGI Spring services
+    digest: 19c82bd8b8b947e76f39717513ec6d4ab37f93e9e1f459f277da1cd963dfc8f1
+    name: sgi-service
+    type: application
+    urls:
+    - https://github.com/herculesproject/sgi-helm/releases/download/sgi-service-0.1.10/sgi-service-0.1.10.tgz
+    version: 0.1.10
+  sgi-umbrella:
+  - apiVersion: v2
+    appVersion: umbrella
+    created: "2025-12-09T09:34:04.799923761Z"
+    dependencies:
+    - name: sgi-webapp
+      repository: file://../sgi-webapp
+      version: 0.1.6
+    - alias: sgi-usr-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.10
+    - alias: sgi-eer-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.10
+    - alias: sgi-eti-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.10
+    - alias: sgi-csp-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.10
+    - alias: sgi-pii-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.10
+    - alias: sgi-rel-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.10
+    - alias: sgi-tp-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.10
+    - alias: sgi-rep-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.10
+    - alias: sgi-com-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.10
+    - alias: sgi-cnf-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.10
+    - alias: sgi-prc-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.10
+    - name: sgi-keycloak
+      repository: file://../sgi-keycloak
+      version: 0.1.19
+    - name: sgi-esb
+      repository: file://../sgi-esb
+      version: 0.1.27
+    - alias: sgp-service
+      condition: sgp.enabled
+      name: sgi-esb-external
+      repository: file://../sgi-esb-external
+      version: 0.2.5
+    - alias: sgemp-service
+      condition: sgemp.enabled
+      name: sgi-esb-external
+      repository: file://../sgi-esb-external
+      version: 0.2.5
+    - alias: sgo-service
+      condition: sgo.enabled
+      name: sgi-esb-external
+      repository: file://../sgi-esb-external
+      version: 0.2.5
+    - alias: sge-service
+      condition: sge.enabled
+      name: sgi-esb-external
+      repository: file://../sgi-esb-external
+      version: 0.2.5
+    - alias: sgdoc-service
+      condition: sgdoc.enabled
+      name: sgi-esb-external
+      repository: file://../sgi-esb-external
+      version: 0.2.5
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: '@bitnami'
+      version: 12.1.9
+    description: An umbrella chart for deploying all SGI services.
+    digest: 5da8b00acfa7cd2a1c7d393244cca62406f8d5fa230b7894497025b01759b4e7
+    name: sgi-umbrella
+    type: application
+    urls:
+    - https://github.com/herculesproject/sgi-helm/releases/download/sgi-umbrella-0.1.49/sgi-umbrella-0.1.49.tgz
+    version: 0.1.49
+  sgi-webapp:
+  - apiVersion: v2
+    appVersion: image
+    created: "2025-12-09T09:34:05.076710311Z"
+    description: A Helm chart for the frontend of SGI
+    digest: f426a631f43577a0db59d795c5791178ce8762efce90d06120babc576a0ca08b
+    name: sgi-webapp
+    type: application
+    urls:
+    - https://github.com/herculesproject/sgi-helm/releases/download/sgi-webapp-0.1.6/sgi-webapp-0.1.6.tgz
+    version: 0.1.6
+generated: "2025-12-09T09:34:05.076719649Z"
