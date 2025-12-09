@@ -54,8 +54,7 @@ sgi-webapp:
   ## Should be enabled and set the correct hostname to be accesible from outside
   ingress:
     enabled: false
-    annotations:
-      kubernetes.io/ingress.class: nginx
+    annotations: {}
     hosts:
       - host: chart-example.local
         paths: /
@@ -178,9 +177,7 @@ sgi-usr-service:
   ## Should be enabled and set the correct hostname to be accesible from outside
   ingress:
     enabled: false
-    annotations:
-      kubernetes.io/ingress.class: nginx
-      nginx.ingress.kubernetes.io/rewrite-target: /$2
+    annotations: {}
     hosts:
       - host: chart-example.local
         paths:
@@ -306,9 +303,7 @@ sgi-eer-service:
   ## Should be enabled and set the correct hostname to be accesible from outside
   ingress:
     enabled: false
-    annotations:
-      kubernetes.io/ingress.class: nginx
-      nginx.ingress.kubernetes.io/rewrite-target: /$2
+    annotations: {}
     hosts:
       - host: chart-example.local
         paths:
@@ -458,9 +453,7 @@ sgi-eti-service:
   ## Should be enabled and set the correct hostname to be accesible from outside
   ingress:
     enabled: false
-    annotations:
-      kubernetes.io/ingress.class: nginx
-      nginx.ingress.kubernetes.io/rewrite-target: /$2
+    annotations: {}
     hosts:
       - host: chart-example.local
         paths:
@@ -613,9 +606,7 @@ sgi-csp-service:
   ## Should be enabled and set the correct hostname to be accesible from outside
   ingress:
     enabled: false
-    annotations:
-      kubernetes.io/ingress.class: nginx
-      nginx.ingress.kubernetes.io/rewrite-target: /$2
+    annotations: {}
     hosts:
       - host: chart-example.local
         paths:
@@ -750,9 +741,7 @@ sgi-pii-service:
   ## Should be enabled and set the correct hostname to be accesible from outside
   ingress:
     enabled: false
-    annotations:
-      kubernetes.io/ingress.class: nginx
-      nginx.ingress.kubernetes.io/rewrite-target: /$2
+    annotations: {}
     hosts:
       - host: chart-example.local
         paths:
@@ -878,9 +867,7 @@ sgi-rel-service:
   ## Should be enabled and set the correct hostname to be accesible from outside
   ingress:
     enabled: false
-    annotations:
-      kubernetes.io/ingress.class: nginx
-      nginx.ingress.kubernetes.io/rewrite-target: /$2
+    annotations: {}
     hosts:
       - host: chart-example.local
         paths:
@@ -1033,9 +1020,7 @@ sgi-tp-service:
   ## Should be enabled and set the correct hostname to be accesible from outside
   ingress:
     enabled: false
-    annotations:
-      kubernetes.io/ingress.class: nginx
-      nginx.ingress.kubernetes.io/rewrite-target: /$2
+    annotations: {}
     hosts:
       - host: chart-example.local
         paths:
@@ -1194,9 +1179,7 @@ sgi-rep-service:
   ## Should be enabled and set the correct hostname to be accesible from outside
   ingress:
     enabled: false
-    annotations:
-      kubernetes.io/ingress.class: nginx
-      nginx.ingress.kubernetes.io/rewrite-target: /$2
+    annotations: {}
     hosts:
       - host: chart-example.local
         paths:
@@ -1367,9 +1350,7 @@ sgi-com-service:
   ## Should be enabled and set the correct hostname to be accesible from outside
   ingress:
     enabled: false
-    annotations:
-      kubernetes.io/ingress.class: nginx
-      nginx.ingress.kubernetes.io/rewrite-target: /$2
+    annotations: {}
     hosts:
       - host: chart-example.local
         paths:
@@ -1495,9 +1476,7 @@ sgi-cnf-service:
   ## Should be enabled and set the correct hostname to be accesible from outside
   ingress:
     enabled: false
-    annotations:
-      kubernetes.io/ingress.class: nginx
-      nginx.ingress.kubernetes.io/rewrite-target: /$2
+    annotations: {}
     hosts:
       - host: chart-example.local
         paths:
@@ -1653,9 +1632,7 @@ sgi-prc-service:
   ## Should be enabled and set the correct hostname to be accesible from outside
   ingress:
     enabled: false
-    annotations:
-      kubernetes.io/ingress.class: nginx
-      nginx.ingress.kubernetes.io/rewrite-target: /$2
+    annotations: {}
     hosts:
       - host: chart-example.local
         paths:
@@ -1779,8 +1756,7 @@ sgi-keycloak:
   ## Should be enabled and set the correct hostname to be accesible from outside
   ingress:
     enabled: false
-    annotations:
-      kubernetes.io/ingress.class: nginx
+    annotations: {}
     hosts:
       - host: chart-example.local
         paths:
@@ -1944,10 +1920,7 @@ sgi-esb:
   ## Should be enabled and set the correct hostname to be accesible from outside
   ingress:
     enabled: false
-    annotations:
-      kubernetes.io/ingress.class: nginx
-      nginx.ingress.kubernetes.io/rewrite-target: $1
-      nginx.ingress.kubernetes.io/proxy-body-size: "10m" #Default size is 1M, needed for sgdoc
+    annotations: {}
     hosts:
       - host: chart-example.local
         paths:
@@ -2086,7 +2059,6 @@ sgo-service:
   ingress:
     enabled: false
     annotations: {}
-    # kubernetes.io/ingress.class: nginx
     hosts:
       - host: chart-example.local
         paths: []
@@ -2219,7 +2191,6 @@ sgdoc-service:
   ingress:
     enabled: false
     annotations: {}
-    # kubernetes.io/ingress.class: nginx
     hosts:
       - host: chart-example.local
         paths: []
