@@ -3,6 +3,16 @@ entries:
   sgi-esb:
   - apiVersion: v2
     appVersion: image
+    created: "2025-12-09T11:30:40.307729623Z"
+    description: A Helm chart for Kubernetes
+    digest: 1a259c42453bd1cb222e00808cbb5f5810708554c8b30475ec9c7020606b3bac
+    name: sgi-esb
+    type: application
+    urls:
+    - https://github.com/herculesproject/sgi-helm/releases/download/sgi-esb-0.1.28/sgi-esb-0.1.28.tgz
+    version: 0.1.28
+  - apiVersion: v2
+    appVersion: image
     created: "2025-12-09T09:34:03.877813118Z"
     description: A Helm chart for Kubernetes
     digest: eeb3acb42076e1f71f71110336d3da1f05e922e18d50d4d6f799fdfd7523fbe1
@@ -12,6 +22,16 @@ entries:
     - https://github.com/herculesproject/sgi-helm/releases/download/sgi-esb-0.1.27/sgi-esb-0.1.27.tgz
     version: 0.1.27
   sgi-esb-external:
+  - apiVersion: v2
+    appVersion: image
+    created: "2025-12-09T11:30:40.474342036Z"
+    description: A generic Helm Chart for SGI External ESB services
+    digest: 12f4467dd4959efd6e2e90bda048cea9802740de8e4a0d265a99af815dab3bde
+    name: sgi-esb-external
+    type: application
+    urls:
+    - https://github.com/herculesproject/sgi-helm/releases/download/sgi-esb-external-0.2.6/sgi-esb-external-0.2.6.tgz
+    version: 0.2.6
   - apiVersion: v2
     appVersion: image
     created: "2025-12-09T09:34:04.133292736Z"
@@ -25,6 +45,16 @@ entries:
   sgi-keycloak:
   - apiVersion: v2
     appVersion: image
+    created: "2025-12-09T11:30:40.649991007Z"
+    description: A Helm chart for the Keycloak service for SGI.
+    digest: 191b545043e8e7f1cce6d56c4949b4a8e1ba337f734f8ebbc1f7d16cf4ac15c8
+    name: sgi-keycloak
+    type: application
+    urls:
+    - https://github.com/herculesproject/sgi-helm/releases/download/sgi-keycloak-0.1.20/sgi-keycloak-0.1.20.tgz
+    version: 0.1.20
+  - apiVersion: v2
+    appVersion: image
     created: "2025-12-09T09:34:04.342455329Z"
     description: A Helm chart for the Keycloak service for SGI.
     digest: 6c32c65dc1c2f14c3a67c481d562f9956bfc6dd8d57827f4b7717e1472949805
@@ -36,6 +66,16 @@ entries:
   sgi-service:
   - apiVersion: v2
     appVersion: image
+    created: "2025-12-09T11:30:40.826261501Z"
+    description: A generic Helm Chart for SGI Spring services
+    digest: 88473a68041979200ff86f9d0d93acc4c39472a7b210eebfb07d4b6c129271f0
+    name: sgi-service
+    type: application
+    urls:
+    - https://github.com/herculesproject/sgi-helm/releases/download/sgi-service-0.1.11/sgi-service-0.1.11.tgz
+    version: 0.1.11
+  - apiVersion: v2
+    appVersion: image
     created: "2025-12-09T09:34:04.57405358Z"
     description: A generic Helm Chart for SGI Spring services
     digest: 19c82bd8b8b947e76f39717513ec6d4ab37f93e9e1f459f277da1cd963dfc8f1
@@ -45,6 +85,99 @@ entries:
     - https://github.com/herculesproject/sgi-helm/releases/download/sgi-service-0.1.10/sgi-service-0.1.10.tgz
     version: 0.1.10
   sgi-umbrella:
+  - apiVersion: v2
+    appVersion: umbrella
+    created: "2025-12-09T11:30:41.02339712Z"
+    dependencies:
+    - name: sgi-webapp
+      repository: file://../sgi-webapp
+      version: 0.1.7
+    - alias: sgi-usr-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.11
+    - alias: sgi-eer-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.11
+    - alias: sgi-eti-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.11
+    - alias: sgi-csp-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.11
+    - alias: sgi-pii-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.11
+    - alias: sgi-rel-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.11
+    - alias: sgi-tp-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.11
+    - alias: sgi-rep-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.11
+    - alias: sgi-com-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.11
+    - alias: sgi-cnf-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.11
+    - alias: sgi-prc-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.11
+    - name: sgi-keycloak
+      repository: file://../sgi-keycloak
+      version: 0.1.20
+    - name: sgi-esb
+      repository: file://../sgi-esb
+      version: 0.1.28
+    - alias: sgp-service
+      condition: sgp.enabled
+      name: sgi-esb-external
+      repository: file://../sgi-esb-external
+      version: 0.2.6
+    - alias: sgemp-service
+      condition: sgemp.enabled
+      name: sgi-esb-external
+      repository: file://../sgi-esb-external
+      version: 0.2.6
+    - alias: sgo-service
+      condition: sgo.enabled
+      name: sgi-esb-external
+      repository: file://../sgi-esb-external
+      version: 0.2.6
+    - alias: sge-service
+      condition: sge.enabled
+      name: sgi-esb-external
+      repository: file://../sgi-esb-external
+      version: 0.2.6
+    - alias: sgdoc-service
+      condition: sgdoc.enabled
+      name: sgi-esb-external
+      repository: file://../sgi-esb-external
+      version: 0.2.6
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: '@bitnami'
+      version: 12.1.9
+    description: An umbrella chart for deploying all SGI services.
+    digest: 001d9c8e24a1076b4ed0eaa375316c09fb4e47c7d58526ac0cd94899b0de487d
+    name: sgi-umbrella
+    type: application
+    urls:
+    - https://github.com/herculesproject/sgi-helm/releases/download/sgi-umbrella-0.1.50/sgi-umbrella-0.1.50.tgz
+    version: 0.1.50
   - apiVersion: v2
     appVersion: umbrella
     created: "2025-12-09T09:34:04.799923761Z"
@@ -141,6 +274,16 @@ entries:
   sgi-webapp:
   - apiVersion: v2
     appVersion: image
+    created: "2025-12-09T11:30:41.210108789Z"
+    description: A Helm chart for the frontend of SGI
+    digest: d567fb6f9088f25a3dc7f79ed867725c1828f4cdc7c751e91311669790783e79
+    name: sgi-webapp
+    type: application
+    urls:
+    - https://github.com/herculesproject/sgi-helm/releases/download/sgi-webapp-0.1.7/sgi-webapp-0.1.7.tgz
+    version: 0.1.7
+  - apiVersion: v2
+    appVersion: image
     created: "2025-12-09T09:34:05.076710311Z"
     description: A Helm chart for the frontend of SGI
     digest: f426a631f43577a0db59d795c5791178ce8762efce90d06120babc576a0ca08b
@@ -149,4 +292,4 @@ entries:
     urls:
     - https://github.com/herculesproject/sgi-helm/releases/download/sgi-webapp-0.1.6/sgi-webapp-0.1.6.tgz
     version: 0.1.6
-generated: "2025-12-09T09:34:05.076719649Z"
+generated: "2025-12-09T11:30:41.210131842Z"
