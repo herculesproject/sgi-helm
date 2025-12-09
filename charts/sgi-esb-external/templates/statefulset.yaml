@@ -5,6 +5,12 @@ metadata:
   name: {{ include "sgi-esb-external.fullname" . }}
   labels:
     {{- include "sgi-esb-external.labels" . | nindent 4 }}
+  {{- if .Values.annotations.enabled }}
+  {{- with .Values.annotations.statefulSetAnnotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+  {{- end }}
 spec:
   replicas: 1
   serviceName: {{ include "sgi-esb-external.fullname" . }}

@@ -4,6 +4,12 @@ metadata:
   name: {{ include "sgi-esb.fullname" . }}
   labels:
     {{- include "sgi-esb.labels" . | nindent 4 }}
+  {{- if .Values.annotations.enabled }}
+  {{- with .Values.annotations.deploymentAnnotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+  {{- end }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
