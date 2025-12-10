@@ -13,11 +13,13 @@ sgi-webapp:
   ## Should be enabled and set the correct hostname to be accesible from outside
   ingress:
     enabled: true
-    annotations:
-      kubernetes.io/ingress.class: nginx
+    # Ingress class name to use (e.g. haproxy, nginx). Leave empty to use the cluster default
+    className: nginx
+    annotations: {}
     hosts:
       - host: demo.hercules-sgi.com
-        paths: /
+        paths:
+          - path: /
 
 ## USR Service
 sgi-usr-service:
@@ -58,8 +60,9 @@ sgi-usr-service:
   ## Should be enabled and set the correct hostname to be accesible from outside
   ingress:
     enabled: true
+    # Ingress class name to use (e.g. haproxy, nginx). Leave empty to use the cluster default
+    className: nginx
     annotations:
-      kubernetes.io/ingress.class: nginx
       nginx.ingress.kubernetes.io/rewrite-target: /$2
     hosts:
       - host: demo.hercules-sgi.com
@@ -105,8 +108,9 @@ sgi-eer-service:
   ## Should be enabled and set the correct hostname to be accesible from outside
   ingress:
     enabled: true
+    # Ingress class name to use (e.g. haproxy, nginx). Leave empty to use the cluster default
+    className: nginx
     annotations:
-      kubernetes.io/ingress.class: nginx
       nginx.ingress.kubernetes.io/rewrite-target: /$2
     hosts:
       - host: demo.hercules-sgi.com
@@ -177,8 +181,9 @@ sgi-eti-service:
   ## Should be enabled and set the correct hostname to be accesible from outside
   ingress:
     enabled: true
+    # Ingress class name to use (e.g. haproxy, nginx). Leave empty to use the cluster default
+    className: nginx
     annotations:
-      kubernetes.io/ingress.class: nginx
       nginx.ingress.kubernetes.io/rewrite-target: /$2
     hosts:
       - host: demo.hercules-sgi.com
@@ -251,8 +256,9 @@ sgi-csp-service:
   ## Should be enabled and set the correct hostname to be accesible from outside
   ingress:
     enabled: true
+    # Ingress class name to use (e.g. haproxy, nginx). Leave empty to use the cluster default
+    className: nginx
     annotations:
-      kubernetes.io/ingress.class: nginx
       nginx.ingress.kubernetes.io/rewrite-target: /$2
     hosts:
       - host: demo.hercules-sgi.com
@@ -307,8 +313,9 @@ sgi-pii-service:
   ## Should be enabled and set the correct hostname to be accesible from outside
   ingress:
     enabled: true
+    # Ingress class name to use (e.g. haproxy, nginx). Leave empty to use the cluster default
+    className: nginx
     annotations:
-      kubernetes.io/ingress.class: nginx
       nginx.ingress.kubernetes.io/rewrite-target: /$2
     hosts:
       - host: demo.hercules-sgi.com
@@ -354,8 +361,9 @@ sgi-rel-service:
   ## Should be enabled and set the correct hostname to be accesible from outside
   ingress:
     enabled: true
+    # Ingress class name to use (e.g. haproxy, nginx). Leave empty to use the cluster default
+    className: nginx
     annotations:
-      kubernetes.io/ingress.class: nginx
       nginx.ingress.kubernetes.io/rewrite-target: /$2
     hosts:
       - host: demo.hercules-sgi.com
@@ -428,8 +436,9 @@ sgi-tp-service:
   ## Should be enabled and set the correct hostname to be accesible from outside
   ingress:
     enabled: true
+    # Ingress class name to use (e.g. haproxy, nginx). Leave empty to use the cluster default
+    className: nginx
     annotations:
-      kubernetes.io/ingress.class: nginx
       nginx.ingress.kubernetes.io/rewrite-target: /$2
     hosts:
       - host: demo.hercules-sgi.com
@@ -508,8 +517,9 @@ sgi-rep-service:
   ## Should be enabled and set the correct hostname to be accesible from outside
   ingress:
     enabled: true
+    # Ingress class name to use (e.g. haproxy, nginx). Leave empty to use the cluster default
+    className: nginx
     annotations:
-      kubernetes.io/ingress.class: nginx
       nginx.ingress.kubernetes.io/rewrite-target: /$2
     hosts:
       - host: demo.hercules-sgi.com
@@ -600,8 +610,9 @@ sgi-com-service:
   ## Should be enabled and set the correct hostname to be accesible from outside
   ingress:
     enabled: true
+    # Ingress class name to use (e.g. haproxy, nginx). Leave empty to use the cluster default
+    className: nginx
     annotations:
-      kubernetes.io/ingress.class: nginx
       nginx.ingress.kubernetes.io/rewrite-target: /$2
     hosts:
       - host: demo.hercules-sgi.com
@@ -647,8 +658,9 @@ sgi-cnf-service:
   ## Should be enabled and set the correct hostname to be accesible from outside
   ingress:
     enabled: true
+    # Ingress class name to use (e.g. haproxy, nginx). Leave empty to use the cluster default
+    className: nginx
     annotations:
-      kubernetes.io/ingress.class: nginx
       nginx.ingress.kubernetes.io/rewrite-target: /$2
     hosts:
       - host: demo.hercules-sgi.com
@@ -724,8 +736,9 @@ sgi-prc-service:
   ## Should be enabled and set the correct hostname to be accesible from outside
   ingress:
     enabled: true
+    # Ingress class name to use (e.g. haproxy, nginx). Leave empty to use the cluster default
+    className: nginx
     annotations:
-      kubernetes.io/ingress.class: nginx
       nginx.ingress.kubernetes.io/rewrite-target: /$2
     hosts:
       - host: demo.hercules-sgi.com
@@ -784,8 +797,9 @@ sgi-keycloak:
   ## Should be enabled and set the correct hostname to be accesible from outside
   ingress:
     enabled: true
-    annotations:
-      kubernetes.io/ingress.class: nginx
+    # Ingress class name to use (e.g. haproxy, nginx). Leave empty to use the cluster default
+    className: nginx
+    annotations: {}
     hosts:
       - host: demo.hercules-sgi.com
         paths:
@@ -882,8 +896,9 @@ sgi-esb:
   ## Should be enabled and set the correct hostname to be accesible from outside
   ingress:
     enabled: true
+    # Ingress class name to use (e.g. haproxy, nginx). Leave empty to use the cluster default
+    className: nginx
     annotations:
-      kubernetes.io/ingress.class: nginx
       nginx.ingress.kubernetes.io/rewrite-target: $1
       nginx.ingress.kubernetes.io/proxy-body-size: "10m" #Default size is 1M, needed for sgdoc
     hosts:

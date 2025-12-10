@@ -32,6 +32,9 @@ sgi-webapp:
   #by default activate rollme annotation to rollout pod with every update
   annotations:
     enabled: true
+    # Additional annotations to apply to the Deployment
+    deploymentAnnotations: {}
+    # Additional annotations to apply to the Pod
     podAnnotations: {}
 
   podSecurityContext:
@@ -54,6 +57,8 @@ sgi-webapp:
   ## Should be enabled and set the correct hostname to be accesible from outside
   ingress:
     enabled: false
+    # Ingress class name to use (e.g. haproxy, nginx). Leave empty to use the cluster default
+    # className: haproxy
     annotations: {}
     hosts:
       - host: chart-example.local
@@ -87,6 +92,13 @@ sgi-webapp:
   tolerations: []
 
   affinity: {}
+  
+  # Deployment update strategy. Set type (RollingUpdate/Recreate) and configure rolling update parameters
+  strategy: {}
+  # type: RollingUpdate
+  # rollingUpdate:
+  #   maxSurge: 1
+  #   maxUnavailable: 0
 
 ## USR Service
 sgi-usr-service:
@@ -155,6 +167,9 @@ sgi-usr-service:
   #by default activate rollme annotation to rollout pod with every update
   annotations:
     enabled: true
+    # Additional annotations to apply to the Deployment
+    deploymentAnnotations: {}
+    # Additional annotations to apply to the Pod
     podAnnotations: {}
 
   podSecurityContext:
@@ -177,6 +192,8 @@ sgi-usr-service:
   ## Should be enabled and set the correct hostname to be accesible from outside
   ingress:
     enabled: false
+    # Ingress class name to use (e.g. haproxy, nginx). Leave empty to use the cluster default
+    # className: haproxy
     annotations: {}
     hosts:
       - host: chart-example.local
@@ -212,6 +229,13 @@ sgi-usr-service:
   tolerations: []
 
   affinity: {}
+  
+  # Deployment update strategy. Set type (RollingUpdate/Recreate) and configure rolling update parameters
+  strategy: {}
+  # type: RollingUpdate
+  # rollingUpdate:
+  #   maxSurge: 1
+  #   maxUnavailable: 0
 
 ## EER Service
 sgi-eer-service:
@@ -281,6 +305,9 @@ sgi-eer-service:
   #by default activate rollme annotation to rollout pod with every update
   annotations:
     enabled: true
+    # Additional annotations to apply to the Deployment
+    deploymentAnnotations: {}
+    # Additional annotations to apply to the Pod
     podAnnotations: {}
 
   podSecurityContext:
@@ -303,6 +330,8 @@ sgi-eer-service:
   ## Should be enabled and set the correct hostname to be accesible from outside
   ingress:
     enabled: false
+    # Ingress class name to use (e.g. haproxy, nginx). Leave empty to use the cluster default
+    # className: haproxy
     annotations: {}
     hosts:
       - host: chart-example.local
@@ -338,6 +367,13 @@ sgi-eer-service:
   tolerations: []
 
   affinity: {}
+  
+  # Deployment update strategy. Set type (RollingUpdate/Recreate) and configure rolling update parameters
+  strategy: {}
+  # type: RollingUpdate
+  # rollingUpdate:
+  #   maxSurge: 1
+  #   maxUnavailable: 0
 
 ## ETI Service
 sgi-eti-service:
@@ -431,6 +467,9 @@ sgi-eti-service:
   #by default activate rollme annotation to rollout pod with every update
   annotations:
     enabled: true
+    # Additional annotations to apply to the Deployment
+    deploymentAnnotations: {}
+    # Additional annotations to apply to the Pod
     podAnnotations: {}
 
   podSecurityContext:
@@ -453,6 +492,8 @@ sgi-eti-service:
   ## Should be enabled and set the correct hostname to be accesible from outside
   ingress:
     enabled: false
+    # Ingress class name to use (e.g. haproxy, nginx). Leave empty to use the cluster default
+    # className: haproxy
     annotations: {}
     hosts:
       - host: chart-example.local
@@ -488,6 +529,13 @@ sgi-eti-service:
   tolerations: []
 
   affinity: {}
+  
+  # Deployment update strategy. Set type (RollingUpdate/Recreate) and configure rolling update parameters
+  strategy: {}
+  # type: RollingUpdate
+  # rollingUpdate:
+  #   maxSurge: 1
+  #   maxUnavailable: 0
 
 ## CSP Service
 sgi-csp-service:
@@ -584,6 +632,9 @@ sgi-csp-service:
   #by default activate rollme annotation to rollout pod with every update
   annotations:
     enabled: true
+    # Additional annotations to apply to the Deployment
+    deploymentAnnotations: {}
+    # Additional annotations to apply to the Pod
     podAnnotations: {}
 
   podSecurityContext:
@@ -606,6 +657,8 @@ sgi-csp-service:
   ## Should be enabled and set the correct hostname to be accesible from outside
   ingress:
     enabled: false
+    # Ingress class name to use (e.g. haproxy, nginx). Leave empty to use the cluster default
+    # className: haproxy
     annotations: {}
     hosts:
       - host: chart-example.local
@@ -641,6 +694,13 @@ sgi-csp-service:
   tolerations: []
 
   affinity: {}
+  
+  # Deployment update strategy. Set type (RollingUpdate/Recreate) and configure rolling update parameters
+  strategy: {}
+  # type: RollingUpdate
+  # rollingUpdate:
+  #   maxSurge: 1
+  #   maxUnavailable: 0
 
 ## PII Service
 sgi-pii-service:
@@ -719,6 +779,9 @@ sgi-pii-service:
   #by default activate rollme annotation to rollout pod with every update
   annotations:
     enabled: true
+    # Additional annotations to apply to the Deployment
+    deploymentAnnotations: {}
+    # Additional annotations to apply to the Pod
     podAnnotations: {}
 
   podSecurityContext:
@@ -741,6 +804,8 @@ sgi-pii-service:
   ## Should be enabled and set the correct hostname to be accesible from outside
   ingress:
     enabled: false
+    # Ingress class name to use (e.g. haproxy, nginx). Leave empty to use the cluster default
+    # className: haproxy
     annotations: {}
     hosts:
       - host: chart-example.local
@@ -776,6 +841,13 @@ sgi-pii-service:
   tolerations: []
 
   affinity: {}
+  
+  # Deployment update strategy. Set type (RollingUpdate/Recreate) and configure rolling update parameters
+  strategy: {}
+  # type: RollingUpdate
+  # rollingUpdate:
+  #   maxSurge: 1
+  #   maxUnavailable: 0
 
 ## REL Service
 sgi-rel-service:
@@ -845,6 +917,9 @@ sgi-rel-service:
   #by default activate rollme annotation to rollout pod with every update
   annotations:
     enabled: true
+    # Additional annotations to apply to the Deployment
+    deploymentAnnotations: {}
+    # Additional annotations to apply to the Pod
     podAnnotations: {}
 
   podSecurityContext:
@@ -867,6 +942,8 @@ sgi-rel-service:
   ## Should be enabled and set the correct hostname to be accesible from outside
   ingress:
     enabled: false
+    # Ingress class name to use (e.g. haproxy, nginx). Leave empty to use the cluster default
+    # className: haproxy
     annotations: {}
     hosts:
       - host: chart-example.local
@@ -902,6 +979,13 @@ sgi-rel-service:
   tolerations: []
 
   affinity: {}
+  
+  # Deployment update strategy. Set type (RollingUpdate/Recreate) and configure rolling update parameters
+  strategy: {}
+  # type: RollingUpdate
+  # rollingUpdate:
+  #   maxSurge: 1
+  #   maxUnavailable: 0
 
 ## TP Service
 sgi-tp-service:
@@ -998,6 +1082,9 @@ sgi-tp-service:
   #by default activate rollme annotation to rollout pod with every update
   annotations:
     enabled: true
+    # Additional annotations to apply to the Deployment
+    deploymentAnnotations: {}
+    # Additional annotations to apply to the Pod
     podAnnotations: {}
 
   podSecurityContext:
@@ -1020,6 +1107,8 @@ sgi-tp-service:
   ## Should be enabled and set the correct hostname to be accesible from outside
   ingress:
     enabled: false
+    # Ingress class name to use (e.g. haproxy, nginx). Leave empty to use the cluster default
+    # className: haproxy
     annotations: {}
     hosts:
       - host: chart-example.local
@@ -1055,6 +1144,13 @@ sgi-tp-service:
   tolerations: []
 
   affinity: {}
+  
+  # Deployment update strategy. Set type (RollingUpdate/Recreate) and configure rolling update parameters
+  strategy: {}
+  # type: RollingUpdate
+  # rollingUpdate:
+  #   maxSurge: 1
+  #   maxUnavailable: 0
 
 ## REP Service
 sgi-rep-service:
@@ -1157,6 +1253,9 @@ sgi-rep-service:
   #by default activate rollme annotation to rollout pod with every update
   annotations:
     enabled: true
+    # Additional annotations to apply to the Deployment
+    deploymentAnnotations: {}
+    # Additional annotations to apply to the Pod
     podAnnotations: {}
 
   podSecurityContext:
@@ -1179,6 +1278,8 @@ sgi-rep-service:
   ## Should be enabled and set the correct hostname to be accesible from outside
   ingress:
     enabled: false
+    # Ingress class name to use (e.g. haproxy, nginx). Leave empty to use the cluster default
+    # className: haproxy
     annotations: {}
     hosts:
       - host: chart-example.local
@@ -1214,6 +1315,13 @@ sgi-rep-service:
   tolerations: []
 
   affinity: {}
+  
+  # Deployment update strategy. Set type (RollingUpdate/Recreate) and configure rolling update parameters
+  strategy: {}
+  # type: RollingUpdate
+  # rollingUpdate:
+  #   maxSurge: 1
+  #   maxUnavailable: 0
 
 ## COM Service
 sgi-com-service:
@@ -1328,6 +1436,9 @@ sgi-com-service:
   #by default activate rollme annotation to rollout pod with every update
   annotations:
     enabled: true
+    # Additional annotations to apply to the Deployment
+    deploymentAnnotations: {}
+    # Additional annotations to apply to the Pod
     podAnnotations: {}
 
   podSecurityContext:
@@ -1350,6 +1461,8 @@ sgi-com-service:
   ## Should be enabled and set the correct hostname to be accesible from outside
   ingress:
     enabled: false
+    # Ingress class name to use (e.g. haproxy, nginx). Leave empty to use the cluster default
+    # className: haproxy
     annotations: {}
     hosts:
       - host: chart-example.local
@@ -1385,6 +1498,13 @@ sgi-com-service:
   tolerations: []
 
   affinity: {}
+  
+  # Deployment update strategy. Set type (RollingUpdate/Recreate) and configure rolling update parameters
+  strategy: {}
+  # type: RollingUpdate
+  # rollingUpdate:
+  #   maxSurge: 1
+  #   maxUnavailable: 0
 
 ## CNF Service
 sgi-cnf-service:
@@ -1454,6 +1574,9 @@ sgi-cnf-service:
   #by default activate rollme annotation to rollout pod with every update
   annotations:
     enabled: true
+    # Additional annotations to apply to the Deployment
+    deploymentAnnotations: {}
+    # Additional annotations to apply to the Pod
     podAnnotations: {}
 
   podSecurityContext:
@@ -1476,6 +1599,8 @@ sgi-cnf-service:
   ## Should be enabled and set the correct hostname to be accesible from outside
   ingress:
     enabled: false
+    # Ingress class name to use (e.g. haproxy, nginx). Leave empty to use the cluster default
+    # className: haproxy
     annotations: {}
     hosts:
       - host: chart-example.local
@@ -1511,6 +1636,13 @@ sgi-cnf-service:
   tolerations: []
 
   affinity: {}
+  
+  # Deployment update strategy. Set type (RollingUpdate/Recreate) and configure rolling update parameters
+  strategy: {}
+  # type: RollingUpdate
+  # rollingUpdate:
+  #   maxSurge: 1
+  #   maxUnavailable: 0
 
 ## PRC Service
 sgi-prc-service:
@@ -1610,6 +1742,9 @@ sgi-prc-service:
   #by default activate rollme annotation to rollout pod with every update
   annotations:
     enabled: true
+    # Additional annotations to apply to the Deployment
+    deploymentAnnotations: {}
+    # Additional annotations to apply to the Pod
     podAnnotations: {}
 
   podSecurityContext:
@@ -1632,6 +1767,8 @@ sgi-prc-service:
   ## Should be enabled and set the correct hostname to be accesible from outside
   ingress:
     enabled: false
+    # Ingress class name to use (e.g. haproxy, nginx). Leave empty to use the cluster default
+    # className: haproxy
     annotations: {}
     hosts:
       - host: chart-example.local
@@ -1667,6 +1804,13 @@ sgi-prc-service:
   tolerations: []
 
   affinity: {}
+  
+  # Deployment update strategy. Set type (RollingUpdate/Recreate) and configure rolling update parameters
+  strategy: {}
+  # type: RollingUpdate
+  # rollingUpdate:
+  #   maxSurge: 1
+  #   maxUnavailable: 0
 
 ## AUTH Service based on Keycloak
 sgi-keycloak:
@@ -1731,6 +1875,9 @@ sgi-keycloak:
   #by default activate rollme annotation to rollout pod with every update
   annotations:
     enabled: true
+    # Additional annotations to apply to the Deployment
+    deploymentAnnotations: {}
+    # Additional annotations to apply to the Pod
     podAnnotations: {}
 
   podSecurityContext:
@@ -1756,6 +1903,8 @@ sgi-keycloak:
   ## Should be enabled and set the correct hostname to be accesible from outside
   ingress:
     enabled: false
+    # Ingress class name to use (e.g. haproxy, nginx). Leave empty to use the cluster default
+    # className: haproxy
     annotations: {}
     hosts:
       - host: chart-example.local
@@ -1791,6 +1940,13 @@ sgi-keycloak:
   tolerations: []
 
   affinity: {}
+  
+  # Deployment update strategy. Set type (RollingUpdate/Recreate) and configure rolling update parameters
+  strategy: {}
+  # type: RollingUpdate
+  # rollingUpdate:
+  #   maxSurge: 1
+  #   maxUnavailable: 0
 
 ## ESB Service
 sgi-esb:
@@ -1897,6 +2053,9 @@ sgi-esb:
   #by default activate rollme annotation to rollout pod with every update
   annotations:
     enabled: true
+    # Additional annotations to apply to the Deployment
+    deploymentAnnotations: {}
+    # Additional annotations to apply to the Pod
     podAnnotations: {}
 
   podSecurityContext:
@@ -1920,6 +2079,8 @@ sgi-esb:
   ## Should be enabled and set the correct hostname to be accesible from outside
   ingress:
     enabled: false
+    # Ingress class name to use (e.g. haproxy, nginx). Leave empty to use the cluster default
+    # className: haproxy
     annotations: {}
     hosts:
       - host: chart-example.local
@@ -1955,6 +2116,13 @@ sgi-esb:
   tolerations: []
 
   affinity: {}
+  
+  # Deployment update strategy. Set type (RollingUpdate/Recreate) and configure rolling update parameters
+  strategy: {}
+  # type: RollingUpdate
+  # rollingUpdate:
+  #   maxSurge: 1
+  #   maxUnavailable: 0
 
 ## Standalone implementation of SGP Service (Isn't available)
 sgp:
@@ -2039,6 +2207,9 @@ sgo-service:
   #by default activate rollme annotation to rollout pod with every update
   annotations:
     enabled: true
+    # Additional annotations to apply to the Deployment
+    deploymentAnnotations: {}
+    # Additional annotations to apply to the Pod
     podAnnotations: {}
 
   podSecurityContext: {}
@@ -2058,6 +2229,8 @@ sgo-service:
 
   ingress:
     enabled: false
+    # Ingress class name to use (e.g. haproxy, nginx). Leave empty to use the cluster default
+    # className: haproxy
     annotations: {}
     hosts:
       - host: chart-example.local
@@ -2091,6 +2264,13 @@ sgo-service:
   tolerations: []
 
   affinity: {}
+  
+  # Deployment update strategy. Set type (RollingUpdate/Recreate) and configure rolling update parameters
+  strategy: {}
+  # type: RollingUpdate
+  # rollingUpdate:
+  #   maxSurge: 1
+  #   maxUnavailable: 0
 
 ## Standalone implementation of SGE Service (Isn't available)
 sge:
@@ -2171,6 +2351,9 @@ sgdoc-service:
   #by default activate rollme annotation to rollout pod with every update
   annotations:
     enabled: true
+    # Additional annotations to apply to the Deployment
+    deploymentAnnotations: {}
+    # Additional annotations to apply to the Pod
     podAnnotations: {}
 
   podSecurityContext: {}
@@ -2190,6 +2373,8 @@ sgdoc-service:
 
   ingress:
     enabled: false
+    # Ingress class name to use (e.g. haproxy, nginx). Leave empty to use the cluster default
+    # className: haproxy
     annotations: {}
     hosts:
       - host: chart-example.local
@@ -2223,6 +2408,13 @@ sgdoc-service:
   tolerations: []
 
   affinity: {}
+  
+  # Deployment update strategy. Set type (RollingUpdate/Recreate) and configure rolling update parameters
+  strategy: {}
+  # type: RollingUpdate
+  # rollingUpdate:
+  #   maxSurge: 1
+  #   maxUnavailable: 0
 
 ## Auxiliar postgresql deployment. Use binami chart version 10.16.2
 ## To see all available options, helm show values bitnami/postgresql --version 10.16.2

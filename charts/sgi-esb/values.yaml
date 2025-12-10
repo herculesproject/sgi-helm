@@ -82,6 +82,9 @@ persistent:
 #by default activate rollme annotation to rollout pod with every update
 annotations:
   enabled: true
+  # Additional annotations to apply to the Deployment
+  deploymentAnnotations: {}
+  # Additional annotations to apply to the Pod
   podAnnotations: {}
 
 podSecurityContext: {}
@@ -102,6 +105,8 @@ service:
 
 ingress:
   enabled: false
+  # Ingress class name to use (e.g. haproxy, nginx). Leave empty to use the cluster default
+  # className: haproxy
   annotations: {}
   # kubernetes.io/ingress.class: nginx
   # kubernetes.io/tls-acme: "true"
@@ -137,3 +142,10 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+# Deployment update strategy. Set type (RollingUpdate/Recreate) and configure rolling update parameters
+strategy: {}
+# type: RollingUpdate
+# rollingUpdate:
+#   maxSurge: 1
+#   maxUnavailable: 0
