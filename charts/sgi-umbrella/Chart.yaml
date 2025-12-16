@@ -30,57 +30,57 @@ dependencies:
     repository: "file://../sgi-webapp"
 
   - name: sgi-service
-    version: 0.1.14
+    version: 0.1.15
     repository: "file://../sgi-service"
     alias: sgi-usr-service
 
   - name: sgi-service
-    version: 0.1.14
+    version: 0.1.15
     repository: "file://../sgi-service"
     alias: sgi-eer-service
 
   - name: sgi-service
-    version: 0.1.14
+    version: 0.1.15
     repository: "file://../sgi-service"
     alias: sgi-eti-service
 
   - name: sgi-service
-    version: 0.1.14
+    version: 0.1.15
     repository: "file://../sgi-service"
     alias: sgi-csp-service
 
   - name: sgi-service
-    version: 0.1.14
+    version: 0.1.15
     repository: "file://../sgi-service"
     alias: sgi-pii-service
 
   - name: sgi-service
-    version: 0.1.14
+    version: 0.1.15
     repository: "file://../sgi-service"
     alias: sgi-rel-service
 
   - name: sgi-service
-    version: 0.1.14
+    version: 0.1.15
     repository: "file://../sgi-service"
     alias: sgi-tp-service
 
   - name: sgi-service
-    version: 0.1.14
+    version: 0.1.15
     repository: "file://../sgi-service"
     alias: sgi-rep-service
 
   - name: sgi-service
-    version: 0.1.14
+    version: 0.1.15
     repository: "file://../sgi-service"
     alias: sgi-com-service
 
   - name: sgi-service
-    version: 0.1.14
+    version: 0.1.15
     repository: "file://../sgi-service"
     alias: sgi-cnf-service
 
   - name: sgi-service
-    version: 0.1.14
+    version: 0.1.15
     repository: "file://../sgi-service"
     alias: sgi-prc-service
 
