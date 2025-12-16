@@ -166,6 +166,16 @@ entries:
   sgi-service:
   - apiVersion: v2
     appVersion: image
+    created: "2025-12-16T14:07:53.225467313Z"
+    description: A generic Helm Chart for SGI Spring services
+    digest: c80596d6a181ef6d1b62557e4d1d562616e65a55d190561bfe8b7b94084968ed
+    name: sgi-service
+    type: application
+    urls:
+    - https://github.com/herculesproject/sgi-helm/releases/download/sgi-service-0.1.16/sgi-service-0.1.16.tgz
+    version: 0.1.16
+  - apiVersion: v2
+    appVersion: image
     created: "2025-12-10T13:33:09.793918354Z"
     description: A generic Helm Chart for SGI Spring services
     digest: 807b78c6135056b7c90f52289870ee17bfb960fa2de123685d4e800b36b3c18a
@@ -215,6 +225,99 @@ entries:
     - https://github.com/herculesproject/sgi-helm/releases/download/sgi-service-0.1.10/sgi-service-0.1.10.tgz
     version: 0.1.10
   sgi-umbrella:
+  - apiVersion: v2
+    appVersion: umbrella
+    created: "2025-12-16T14:07:53.391078448Z"
+    dependencies:
+    - name: sgi-webapp
+      repository: file://../sgi-webapp
+      version: 0.1.10
+    - alias: sgi-usr-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.16
+    - alias: sgi-eer-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.16
+    - alias: sgi-eti-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.16
+    - alias: sgi-csp-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.16
+    - alias: sgi-pii-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.16
+    - alias: sgi-rel-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.16
+    - alias: sgi-tp-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.16
+    - alias: sgi-rep-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.16
+    - alias: sgi-com-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.16
+    - alias: sgi-cnf-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.16
+    - alias: sgi-prc-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.16
+    - name: sgi-keycloak
+      repository: file://../sgi-keycloak
+      version: 0.1.24
+    - name: sgi-esb
+      repository: file://../sgi-esb
+      version: 0.1.31
+    - alias: sgp-service
+      condition: sgp.enabled
+      name: sgi-esb-external
+      repository: file://../sgi-esb-external
+      version: 0.2.9
+    - alias: sgemp-service
+      condition: sgemp.enabled
+      name: sgi-esb-external
+      repository: file://../sgi-esb-external
+      version: 0.2.9
+    - alias: sgo-service
+      condition: sgo.enabled
+      name: sgi-esb-external
+      repository: file://../sgi-esb-external
+      version: 0.2.9
+    - alias: sge-service
+      condition: sge.enabled
+      name: sgi-esb-external
+      repository: file://../sgi-esb-external
+      version: 0.2.9
+    - alias: sgdoc-service
+      condition: sgdoc.enabled
+      name: sgi-esb-external
+      repository: file://../sgi-esb-external
+      version: 0.2.9
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: '@bitnami'
+      version: 12.1.9
+    description: An umbrella chart for deploying all SGI services.
+    digest: b27df9996e6e427ef1fb9961ec6fdeefb9f7778889fe5ba525700bf34b03df0d
+    name: sgi-umbrella
+    type: application
+    urls:
+    - https://github.com/herculesproject/sgi-helm/releases/download/sgi-umbrella-0.1.56/sgi-umbrella-0.1.56.tgz
+    version: 0.1.56
   - apiVersion: v2
     appVersion: umbrella
     created: "2025-12-10T13:33:10.012712293Z"
@@ -824,4 +927,4 @@ entries:
     urls:
     - https://github.com/herculesproject/sgi-helm/releases/download/sgi-webapp-0.1.6/sgi-webapp-0.1.6.tgz
     version: 0.1.6
-generated: "2025-12-10T13:33:10.218326721Z"
+generated: "2025-12-16T14:07:53.391172393Z"
