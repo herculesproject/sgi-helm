@@ -72,6 +72,12 @@ spec:
             - name: http
               containerPort: 8080
               protocol: TCP
+          {{- if .Values.realmConfigMap.enabled }}
+          volumeMounts:
+          - name: realm-config
+            mountPath: /realm
+            readOnly: true
+          {{- end }}
           livenessProbe:
             httpGet:
               path: /auth/
@@ -86,6 +92,15 @@ spec:
             timeoutSeconds: 1
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+      {{- if .Values.realmConfigMap.enabled }}
+      volumes:
+      - name: realm-config
+        configMap:
+          name: {{ .Values.realmConfigMap.name }}
+          items:
+          - key: {{ .Values.realmConfigMap.key }}
+            path: sgi-realm.json
+      {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

@@ -101,3 +101,26 @@ strategy: {}
 # rollingUpdate:
 #   maxSurge: 1
 #   maxUnavailable: 0
+
+# Realm source configuration
+realmConfigMap:
+  # Mount a ConfigMap with custom realm configuration (true) or use base realm from Docker image (false)
+  #
+  # Example to create an external ConfigMap:
+  #   kubectl create configmap my-custom-sgi-realm \
+  #     --from-file=sgi-realm.json=./my-sgi-realm.json \
+  #     -n <namespace>
+  enabled: false
+  
+  # Name of the ConfigMap containing the sgi-realm.json file
+  #
+  # Example to create an external ConfigMap:
+  #   kubectl create configmap my-custom-sgi-realm \
+  #     --from-file=sgi-realm.json=./my-sgi-realm.json \
+  #     -n <namespace>
+  #
+  # name: "my-custom-sgi-realm"
+  name: ""
+
+  # ConfigMap key that contains the realm JSON
+  key: "sgi-realm.json"
