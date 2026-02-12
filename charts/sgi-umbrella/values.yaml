@@ -4,6 +4,15 @@
 
 nameOverride: ""
 fullnameOverride: ""
+    
+## Common SGI configuration.
+## These values are shared across all SGI services unless overridden at service level.
+sgi:
+  image:
+    # Common pull policy for all SGI services. Can be overridden at service level by setting their own image.pullPolicy.
+    pullPolicy: IfNotPresent
+    # Common image tag for all SGI services. Can be overridden at service level by setting their own image.tag.
+    tag: "latest"
 
 ## WEB deployment
 sgi-webapp:
@@ -12,9 +21,10 @@ sgi-webapp:
   image:
     # image.repository is required
     repository: sgi/sgi-webapp
-    pullPolicy: IfNotPresent
-    # image.tag is required
-    tag: latest
+    # Empty to use sgi.image.pullPolicy
+    pullPolicy: ""
+    # Empty to use sgi.image.tag
+    tag: ""
 
   imagePullSecrets: []
   nameOverride: ""
@@ -107,9 +117,10 @@ sgi-usr-service:
   image:
     # image.repository is required
     repository: sgi/usr-service
-    pullPolicy: IfNotPresent
-    # image.tag is required
-    tag: latest
+    # Empty to use sgi.image.pullPolicy
+    pullPolicy: ""
+    # Empty to use sgi.image.tag
+    tag: ""
 
   database:
     ## wether to create a database to have side by side with container
@@ -244,9 +255,10 @@ sgi-eer-service:
   image:
     # image.repository is required
     repository: sgi/eer-service
-    pullPolicy: IfNotPresent
-    # image.tag is required
-    tag: latest
+    # Empty to use sgi.image.pullPolicy
+    pullPolicy: ""
+    # Empty to use sgi.image.tag
+    tag: ""
 
   database:
     ## wether to create a database to have side by side with container
@@ -382,9 +394,10 @@ sgi-eti-service:
   image:
     # image.repository is required
     repository: sgi/eti-service
-    pullPolicy: IfNotPresent
-    # image.tag is required
-    tag: latest
+    # Empty to use sgi.image.pullPolicy
+    pullPolicy: ""
+    # Empty to use sgi.image.tag
+    tag: ""
 
   database:
     ## wether to create a database to have side by side with container
@@ -544,9 +557,10 @@ sgi-csp-service:
   image:
     # image.repository is required
     repository: sgi/csp-service
-    pullPolicy: IfNotPresent
-    # image.tag is required
-    tag: latest
+    # Empty to use sgi.image.pullPolicy
+    pullPolicy: ""
+    # Empty to use sgi.image.tag
+    tag: ""
 
   database:
     ## wether to create a database to have side by side with container
@@ -709,9 +723,10 @@ sgi-pii-service:
   image:
     # image.repository is required
     repository: sgi/pii-service
-    pullPolicy: IfNotPresent
-    # image.tag is required
-    tag: latest
+    # Empty to use sgi.image.pullPolicy
+    pullPolicy: ""
+    # Empty to use sgi.image.tag
+    tag: ""
 
   database:
     ## wether to create a database to have side by side with container
@@ -856,9 +871,10 @@ sgi-rel-service:
   image:
     # image.repository is required
     repository: sgi/rel-service
-    pullPolicy: IfNotPresent
-    # image.tag is required
-    tag: latest
+    # Empty to use sgi.image.pullPolicy
+    pullPolicy: ""
+    # Empty to use sgi.image.tag
+    tag: ""
 
   database:
     ## wether to create a database to have side by side with container
@@ -994,9 +1010,10 @@ sgi-tp-service:
   image:
     # image.repository is required
     repository: sgi/tp-service
-    pullPolicy: IfNotPresent
-    # image.tag is required
-    tag: latest
+    # Empty to use sgi.image.pullPolicy
+    pullPolicy: ""
+    # Empty to use sgi.image.tag
+    tag: ""
 
   database:
     ## wether to create a database to have side by side with container
@@ -1159,9 +1176,10 @@ sgi-rep-service:
   image:
     # image.repository is required
     repository: sgi/rep-service
-    pullPolicy: IfNotPresent
-    # image.tag is required
-    tag: latest
+    # Empty to use sgi.image.pullPolicy
+    pullPolicy: ""
+    # Empty to use sgi.image.tag
+    tag: ""
 
   database:
     ## wether to create a database to have side by side with container
@@ -1330,9 +1348,10 @@ sgi-com-service:
   image:
     # image.repository is required
     repository: sgi/com-service
-    pullPolicy: IfNotPresent
-    # image.tag is required
-    tag: latest
+    # Empty to use sgi.image.pullPolicy
+    pullPolicy: ""
+    # Empty to use sgi.image.tag
+    tag: ""
 
   database:
     ## wether to create a database to have side by side with container
@@ -1513,9 +1532,10 @@ sgi-cnf-service:
   image:
     # image.repository is required
     repository: sgi/cnf-service
-    pullPolicy: IfNotPresent
-    # image.tag is required
-    tag: latest
+    # Empty to use sgi.image.pullPolicy
+    pullPolicy: ""
+    # Empty to use sgi.image.tag
+    tag: ""
 
   database:
     ## wether to create a database to have side by side with container
@@ -1651,9 +1671,10 @@ sgi-prc-service:
   image:
     # image.repository is required
     repository: sgi/prc-service
-    pullPolicy: IfNotPresent
-    # image.tag is required
-    tag: latest
+    # Empty to use sgi.image.pullPolicy
+    pullPolicy: ""
+    # Empty to use sgi.image.tag
+    tag: ""
 
   database:
     ## wether to create a database to have side by side with container
@@ -1819,9 +1840,10 @@ sgi-keycloak:
   image:
     # image.repository is required
     repository: sgi/auth
-    pullPolicy: IfNotPresent
-    # image.tag is required
-    tag: latest
+   # Empty to use sgi.image.pullPolicy
+    pullPolicy: ""
+    # Empty to use sgi.image.tag
+    tag: ""
 
   settings:
     # Admin username
@@ -1955,9 +1977,10 @@ sgi-esb:
   image:
     # image.repository is required
     repository: sgi/esb-wso2-mi
-    pullPolicy: IfNotPresent
-    # image.tag is required
-    tag: latest
+    # Empty to use sgi.image.pullPolicy
+    pullPolicy: ""
+    # Empty to use sgi.image.tag
+    tag: ""
 
   imagePullSecrets: []
   nameOverride: ""
@@ -2141,9 +2164,10 @@ sgo-service:
   image:
     # image.repository is required
     repository: sgi/external/sgo-service
-    pullPolicy: IfNotPresent
-    # image.tag is required
-    tag: latest
+    # Empty to use sgi.image.pullPolicy
+    pullPolicy: ""
+    # Empty to use sgi.image.tag
+    tag: ""
 
   # Database configuration
   database:
@@ -2285,9 +2309,10 @@ sgdoc-service:
   image:
     # image.repository is required
     repository: sgi/external/sgdoc-service
-    pullPolicy: IfNotPresent
-    # image.tag is required
-    tag: latest
+    # Empty to use sgi.image.pullPolicy
+    pullPolicy: ""
+    # Empty to use sgi.image.tag
+    tag: ""
 
   # Database configuration
   database:

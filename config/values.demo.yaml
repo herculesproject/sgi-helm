@@ -1,14 +1,21 @@
 # Configuration for the DEMO Environment of the SGI application
 
+
+## Common SGI configuration
+## These values are shared across all SGI services unless overridden at service level
+sgi:
+  image:
+    # Common pull policy for all SGI services. Can be overridden at service level by setting their own image.pullPolicy.
+    pullPolicy: IfNotPresent
+    # Common image tag for all SGI services. Can be overridden at service level by setting their own image.tag.
+    tag: "0.0.13"
+
 ## WEB deployment
 sgi-webapp:
 
   image:
     # image.repository is required
     repository: h3rcul3scru3/sgi-webapp
-    pullPolicy: Always
-    # image.tag is required
-    tag: 0.0.13
 
   ## Should be enabled and set the correct hostname to be accesible from outside
   ingress:
@@ -27,9 +34,6 @@ sgi-usr-service:
   image:
     # image.repository is required
     repository: h3rcul3scru3/usr-service
-    pullPolicy: Always
-    # image.tag is required
-    tag: 0.0.13
 
 
   spring:
@@ -75,9 +79,6 @@ sgi-eer-service:
   image:
     # image.repository is required
     repository: h3rcul3scru3/eer-service
-    pullPolicy: Always
-    # image.tag is required
-    tag: 0.0.13
 
   spring:
     ## Endpoint of Signing certificate of JWT tokens. Change only the hostname or protocol.
@@ -123,10 +124,6 @@ sgi-eti-service:
   image:
     # image.repository is required
     repository: h3rcul3scru3/eti-service
-    pullPolicy: Always
-    # image.tag is required
-    tag: 0.0.13
-
 
   spring:
     ## Endpoint of Signing certificate of JWT tokens. Change only the hostname or protocol.
@@ -196,9 +193,6 @@ sgi-csp-service:
   image:
     # image.repository is required
     repository: h3rcul3scru3/csp-service
-    pullPolicy: Always
-    # image.tag is required
-    tag: 0.0.13
 
   spring:
     ## Endpoint of Signing certificate of JWT tokens. Change only the hostname or protocol.
@@ -271,9 +265,6 @@ sgi-pii-service:
   image:
     # image.repository is required
     repository: h3rcul3scru3/pii-service
-    pullPolicy: Always
-    # image.tag is required
-    tag: 0.0.13
 
   spring:
     ## Endpoint of Signing certificate of JWT tokens. Change only the hostname or protocol.
@@ -328,9 +319,6 @@ sgi-rel-service:
   image:
     # image.repository is required
     repository: h3rcul3scru3/rel-service
-    pullPolicy: Always
-    # image.tag is required
-    tag: 0.0.13
 
   spring:
     ## Endpoint of Signing certificate of JWT tokens. Change only the hostname or protocol.
@@ -376,9 +364,6 @@ sgi-tp-service:
   image:
     # image.repository is required
     repository: h3rcul3scru3/tp-service
-    pullPolicy: Always
-    # image.tag is required
-    tag: 0.0.13
 
   spring:
     ## Endpoint of Signing certificate of JWT tokens. Change only the hostname or protocol.
@@ -451,9 +436,6 @@ sgi-rep-service:
   image:
     # image.repository is required
     repository: h3rcul3scru3/rep-service
-    pullPolicy: Always
-    # image.tag is required
-    tag: 0.0.13
 
   spring:
     ## Endpoint of Signing certificate of JWT tokens. Change only the hostname or protocol.
@@ -532,9 +514,6 @@ sgi-com-service:
   image:
     # image.repository is required
     repository: h3rcul3scru3/com-service
-    pullPolicy: Always
-    # image.tag is required
-    tag: 0.0.13
 
   spring:
     ## Endpoint of Signing certificate of JWT tokens. Change only the hostname or protocol.
@@ -625,9 +604,6 @@ sgi-cnf-service:
   image:
     # image.repository is required
     repository: h3rcul3scru3/cnf-service
-    pullPolicy: Always
-    # image.tag is required
-    tag: 0.0.13
 
   spring:
     ## Endpoint of Signing certificate of JWT tokens. Change only the hostname or protocol.
@@ -673,9 +649,6 @@ sgi-prc-service:
   image:
     # image.repository is required
     repository: h3rcul3scru3/prc-service
-    pullPolicy: Always
-    # image.tag is required
-    tag: 0.0.13
 
   spring:
     ## Endpoint of Signing certificate of JWT tokens. Change only the hostname or protocol.
@@ -751,9 +724,6 @@ sgi-keycloak:
   image:
     # image.repository is required
     repository: h3rcul3scru3/auth
-    pullPolicy: Always
-    # image.tag is required
-    tag: 0.0.13
 
   settings:
     # Admin username
@@ -811,9 +781,6 @@ sgi-esb:
   image:
     # image.repository is required
     repository: h3rcul3scru3/esb-wso2-mi
-    pullPolicy: Always
-    # image.tag is required
-    tag: 0.0.13
 
   ## Auth validation config
   auth:
@@ -922,9 +889,6 @@ sgo-service:
   image:
     # image.repository is required
     repository: h3rcul3scru3/external/sgo-service
-    pullPolicy: Always
-    # image.tag is required
-    tag: 0.0.13
 
   # Database configuration
   database:
@@ -981,9 +945,6 @@ sgdoc-service:
   image:
     # image.repository is required
     repository: h3rcul3scru3/external/sgdoc-service
-    pullPolicy: Always
-    # image.tag is required
-    tag: 0.0.13
 
   # Database configuration
   database:

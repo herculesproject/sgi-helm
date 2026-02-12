@@ -44,8 +44,8 @@ spec:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          image: "{{ required "An image.repository value must be specified" .Values.image.repository }}:{{ required "Either image.tag or sgi.image.tag must be specified" (default .Values.sgi.image.tag .Values.image.tag) }}"
+          imagePullPolicy: {{ default .Values.sgi.image.pullPolicy (default "IfNotPresent" .Values.image.pullPolicy) }}
           env:
           - name: KEYCLOAK_USER
             {{- if kindIs "map" .Values.settings.keycloakUser }}

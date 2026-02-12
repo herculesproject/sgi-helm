@@ -5,10 +5,12 @@
 replicaCount: 1
 
 image:
+  # image.repository is required
   repository: null
-  pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+  # Leave empty to use parent chart's sgi.image.pullPolicy. Defaults to IfNotPresent if neither is set.
+  pullPolicy: null
+  # Leave empty to use parent chart's sgi.image.tag if available. Either image.tag or sgi.image.tag must be specified.
+  tag: null
 
 settings:
   keycloakUser: "admin"
