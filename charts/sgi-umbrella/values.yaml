@@ -20,7 +20,7 @@ sgi-webapp:
 
   image:
     # image.repository is required
-    repository: sgi/sgi-webapp
+    repository: herculesproject/sgi-webapp
     # Empty to use sgi.image.pullPolicy
     pullPolicy: ""
     # Empty to use sgi.image.tag
@@ -116,7 +116,7 @@ sgi-usr-service:
 
   image:
     # image.repository is required
-    repository: sgi/usr-service
+    repository: herculesproject/sgi-usr-service
     # Empty to use sgi.image.pullPolicy
     pullPolicy: ""
     # Empty to use sgi.image.tag
@@ -254,7 +254,7 @@ sgi-eer-service:
 
   image:
     # image.repository is required
-    repository: sgi/eer-service
+    repository: herculesproject/sgi-eer-service
     # Empty to use sgi.image.pullPolicy
     pullPolicy: ""
     # Empty to use sgi.image.tag
@@ -393,7 +393,7 @@ sgi-eti-service:
 
   image:
     # image.repository is required
-    repository: sgi/eti-service
+    repository: herculesproject/sgi-eti-service
     # Empty to use sgi.image.pullPolicy
     pullPolicy: ""
     # Empty to use sgi.image.tag
@@ -556,7 +556,7 @@ sgi-csp-service:
 
   image:
     # image.repository is required
-    repository: sgi/csp-service
+    repository: herculesproject/sgi-csp-service
     # Empty to use sgi.image.pullPolicy
     pullPolicy: ""
     # Empty to use sgi.image.tag
@@ -722,7 +722,7 @@ sgi-pii-service:
 
   image:
     # image.repository is required
-    repository: sgi/pii-service
+    repository: herculesproject/sgi-pii-service
     # Empty to use sgi.image.pullPolicy
     pullPolicy: ""
     # Empty to use sgi.image.tag
@@ -870,7 +870,7 @@ sgi-rel-service:
 
   image:
     # image.repository is required
-    repository: sgi/rel-service
+    repository: herculesproject/sgi-rel-service
     # Empty to use sgi.image.pullPolicy
     pullPolicy: ""
     # Empty to use sgi.image.tag
@@ -1009,7 +1009,7 @@ sgi-tp-service:
 
   image:
     # image.repository is required
-    repository: sgi/tp-service
+    repository: herculesproject/sgi-tp-service
     # Empty to use sgi.image.pullPolicy
     pullPolicy: ""
     # Empty to use sgi.image.tag
@@ -1175,7 +1175,7 @@ sgi-rep-service:
 
   image:
     # image.repository is required
-    repository: sgi/rep-service
+    repository: herculesproject/sgi-rep-service
     # Empty to use sgi.image.pullPolicy
     pullPolicy: ""
     # Empty to use sgi.image.tag
@@ -1347,7 +1347,7 @@ sgi-com-service:
 
   image:
     # image.repository is required
-    repository: sgi/com-service
+    repository: herculesproject/sgi-com-service
     # Empty to use sgi.image.pullPolicy
     pullPolicy: ""
     # Empty to use sgi.image.tag
@@ -1531,7 +1531,7 @@ sgi-cnf-service:
 
   image:
     # image.repository is required
-    repository: sgi/cnf-service
+    repository: herculesproject/sgi-cnf-service
     # Empty to use sgi.image.pullPolicy
     pullPolicy: ""
     # Empty to use sgi.image.tag
@@ -1670,7 +1670,7 @@ sgi-prc-service:
 
   image:
     # image.repository is required
-    repository: sgi/prc-service
+    repository: herculesproject/sgi-prc-service
     # Empty to use sgi.image.pullPolicy
     pullPolicy: ""
     # Empty to use sgi.image.tag
@@ -1839,7 +1839,7 @@ sgi-keycloak:
 
   image:
     # image.repository is required
-    repository: sgi/auth
+    repository: herculesproject/sgi-auth
    # Empty to use sgi.image.pullPolicy
     pullPolicy: ""
     # Empty to use sgi.image.tag
@@ -1976,7 +1976,7 @@ sgi-esb:
 
   image:
     # image.repository is required
-    repository: sgi/esb-wso2-mi
+    repository: herculesproject/sgi-esb-reference-imp
     # Empty to use sgi.image.pullPolicy
     pullPolicy: ""
     # Empty to use sgi.image.tag
@@ -2163,7 +2163,7 @@ sgo-service:
 
   image:
     # image.repository is required
-    repository: sgi/external/sgo-service
+    repository: herculesproject/sgi-external-sgo-reference-imp
     # Empty to use sgi.image.pullPolicy
     pullPolicy: ""
     # Empty to use sgi.image.tag
@@ -2308,7 +2308,7 @@ sgdoc-service:
 
   image:
     # image.repository is required
-    repository: sgi/external/sgdoc-service
+    repository: herculesproject/sgi-external-sgdoc-reference-imp
     # Empty to use sgi.image.pullPolicy
     pullPolicy: ""
     # Empty to use sgi.image.tag

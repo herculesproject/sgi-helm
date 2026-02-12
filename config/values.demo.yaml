@@ -15,7 +15,7 @@ sgi-webapp:
 
   image:
     # image.repository is required
-    repository: h3rcul3scru3/sgi-webapp
+    repository: herculesproject/sgi-webapp
 
   ## Should be enabled and set the correct hostname to be accesible from outside
   ingress:
@@ -33,7 +33,7 @@ sgi-usr-service:
 
   image:
     # image.repository is required
-    repository: h3rcul3scru3/usr-service
+    repository: herculesproject/sgi-usr-service
 
 
   spring:
@@ -78,7 +78,7 @@ sgi-eer-service:
 
   image:
     # image.repository is required
-    repository: h3rcul3scru3/eer-service
+    repository: herculesproject/sgi-eer-service
 
   spring:
     ## Endpoint of Signing certificate of JWT tokens. Change only the hostname or protocol.
@@ -123,7 +123,7 @@ sgi-eti-service:
 
   image:
     # image.repository is required
-    repository: h3rcul3scru3/eti-service
+    repository: herculesproject/sgi-eti-service
 
   spring:
     ## Endpoint of Signing certificate of JWT tokens. Change only the hostname or protocol.
@@ -192,7 +192,7 @@ sgi-csp-service:
 
   image:
     # image.repository is required
-    repository: h3rcul3scru3/csp-service
+    repository: herculesproject/sgi-csp-service
 
   spring:
     ## Endpoint of Signing certificate of JWT tokens. Change only the hostname or protocol.
@@ -264,7 +264,7 @@ sgi-pii-service:
 
   image:
     # image.repository is required
-    repository: h3rcul3scru3/pii-service
+    repository: herculesproject/sgi-pii-service
 
   spring:
     ## Endpoint of Signing certificate of JWT tokens. Change only the hostname or protocol.
@@ -318,7 +318,7 @@ sgi-rel-service:
 
   image:
     # image.repository is required
-    repository: h3rcul3scru3/rel-service
+    repository: herculesproject/sgi-rel-service
 
   spring:
     ## Endpoint of Signing certificate of JWT tokens. Change only the hostname or protocol.
@@ -363,7 +363,7 @@ sgi-tp-service:
 
   image:
     # image.repository is required
-    repository: h3rcul3scru3/tp-service
+    repository: herculesproject/sgi-tp-service
 
   spring:
     ## Endpoint of Signing certificate of JWT tokens. Change only the hostname or protocol.
@@ -435,7 +435,7 @@ sgi-rep-service:
 
   image:
     # image.repository is required
-    repository: h3rcul3scru3/rep-service
+    repository: herculesproject/sgi-rep-service
 
   spring:
     ## Endpoint of Signing certificate of JWT tokens. Change only the hostname or protocol.
@@ -513,7 +513,7 @@ sgi-com-service:
 
   image:
     # image.repository is required
-    repository: h3rcul3scru3/com-service
+    repository: herculesproject/sgi-com-service
 
   spring:
     ## Endpoint of Signing certificate of JWT tokens. Change only the hostname or protocol.
@@ -603,7 +603,7 @@ sgi-cnf-service:
 
   image:
     # image.repository is required
-    repository: h3rcul3scru3/cnf-service
+    repository: herculesproject/sgi-cnf-service
 
   spring:
     ## Endpoint of Signing certificate of JWT tokens. Change only the hostname or protocol.
@@ -648,7 +648,7 @@ sgi-prc-service:
 
   image:
     # image.repository is required
-    repository: h3rcul3scru3/prc-service
+    repository: herculesproject/sgi-prc-service
 
   spring:
     ## Endpoint of Signing certificate of JWT tokens. Change only the hostname or protocol.
@@ -723,7 +723,7 @@ sgi-keycloak:
 
   image:
     # image.repository is required
-    repository: h3rcul3scru3/auth
+    repository: herculesproject/sgi-auth
 
   settings:
     # Admin username
@@ -780,7 +780,7 @@ sgi-esb:
 
   image:
     # image.repository is required
-    repository: h3rcul3scru3/esb-wso2-mi
+    repository: herculesproject/sgi-esb-reference-imp
 
   ## Auth validation config
   auth:
@@ -888,7 +888,7 @@ sgo-service:
 
   image:
     # image.repository is required
-    repository: h3rcul3scru3/external/sgo-service
+    repository: herculesproject/sgi-external-sgo-reference-imp
 
   # Database configuration
   database:
@@ -944,7 +944,7 @@ sgdoc-service:
 
   image:
     # image.repository is required
-    repository: h3rcul3scru3/external/sgdoc-service
+    repository: herculesproject/sgi-external-sgdoc-reference-imp
 
   # Database configuration
   database:
