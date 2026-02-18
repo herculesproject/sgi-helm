@@ -1,9 +1,9 @@
 # Configuration for the DEMO Environment of the SGI application
 
 
-## Common SGI configuration
-## These values are shared across all SGI services unless overridden at service level
-sgi:
+## Global SGI configuration.
+## These values are shared across all SGI services (propagated to subcharts via Helm's global scope).
+global:
   image:
     # Common pull policy for all SGI services. Can be overridden at service level by setting their own image.pullPolicy.
     pullPolicy: IfNotPresent

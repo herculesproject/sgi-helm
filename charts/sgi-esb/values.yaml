@@ -2,14 +2,20 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
+# Global values (overridden by parent chart when used as subchart)
+global:
+  image:
+    pullPolicy: ""
+    tag: ""
+
 replicaCount: 1
 
 image:
   # image.repository is required
   repository: null
-  # Leave empty to use parent chart's sgi.image.pullPolicy. Defaults to IfNotPresent if neither is set.
+  # Leave empty to use parent chart's global.image.pullPolicy. Defaults to IfNotPresent if neither is set.
   pullPolicy: null
-  # Leave empty to use parent chart's sgi.image.tag if available. Either image.tag or sgi.image.tag must be specified.
+  # Leave empty to use parent chart's global.image.tag if available. Either image.tag or global.image.tag must be specified.
   tag: null
 
 imagePullSecrets: []

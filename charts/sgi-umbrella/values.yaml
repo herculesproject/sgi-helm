@@ -5,9 +5,9 @@
 nameOverride: ""
 fullnameOverride: ""
     
-## Common SGI configuration.
-## These values are shared across all SGI services unless overridden at service level.
-sgi:
+## Global SGI configuration.
+## These values are shared across all SGI services (propagated to subcharts via Helm's global scope).
+global:
   image:
     # Common pull policy for all SGI services. Can be overridden at service level by setting their own image.pullPolicy.
     pullPolicy: IfNotPresent
@@ -21,9 +21,9 @@ sgi-webapp:
   image:
     # image.repository is required
     repository: herculesproject/sgi-webapp
-    # Empty to use sgi.image.pullPolicy
+    # Empty to use global.image.pullPolicy
     pullPolicy: ""
-    # Empty to use sgi.image.tag
+    # Empty to use global.image.tag
     tag: ""
 
   imagePullSecrets: []
@@ -117,9 +117,9 @@ sgi-usr-service:
   image:
     # image.repository is required
     repository: herculesproject/sgi-usr-service
-    # Empty to use sgi.image.pullPolicy
+    # Empty to use global.image.pullPolicy
     pullPolicy: ""
-    # Empty to use sgi.image.tag
+    # Empty to use global.image.tag
     tag: ""
 
   database:
@@ -255,9 +255,9 @@ sgi-eer-service:
   image:
     # image.repository is required
     repository: herculesproject/sgi-eer-service
-    # Empty to use sgi.image.pullPolicy
+    # Empty to use global.image.pullPolicy
     pullPolicy: ""
-    # Empty to use sgi.image.tag
+    # Empty to use global.image.tag
     tag: ""
 
   database:
@@ -394,9 +394,9 @@ sgi-eti-service:
   image:
     # image.repository is required
     repository: herculesproject/sgi-eti-service
-    # Empty to use sgi.image.pullPolicy
+    # Empty to use global.image.pullPolicy
     pullPolicy: ""
-    # Empty to use sgi.image.tag
+    # Empty to use global.image.tag
     tag: ""
 
   database:
@@ -557,9 +557,9 @@ sgi-csp-service:
   image:
     # image.repository is required
     repository: herculesproject/sgi-csp-service
-    # Empty to use sgi.image.pullPolicy
+    # Empty to use global.image.pullPolicy
     pullPolicy: ""
-    # Empty to use sgi.image.tag
+    # Empty to use global.image.tag
     tag: ""
 
   database:
@@ -723,9 +723,9 @@ sgi-pii-service:
   image:
     # image.repository is required
     repository: herculesproject/sgi-pii-service
-    # Empty to use sgi.image.pullPolicy
+    # Empty to use global.image.pullPolicy
     pullPolicy: ""
-    # Empty to use sgi.image.tag
+    # Empty to use global.image.tag
     tag: ""
 
   database:
@@ -871,9 +871,9 @@ sgi-rel-service:
   image:
     # image.repository is required
     repository: herculesproject/sgi-rel-service
-    # Empty to use sgi.image.pullPolicy
+    # Empty to use global.image.pullPolicy
     pullPolicy: ""
-    # Empty to use sgi.image.tag
+    # Empty to use global.image.tag
     tag: ""
 
   database:
@@ -1010,9 +1010,9 @@ sgi-tp-service:
   image:
     # image.repository is required
     repository: herculesproject/sgi-tp-service
-    # Empty to use sgi.image.pullPolicy
+    # Empty to use global.image.pullPolicy
     pullPolicy: ""
-    # Empty to use sgi.image.tag
+    # Empty to use global.image.tag
     tag: ""
 
   database:
@@ -1176,9 +1176,9 @@ sgi-rep-service:
   image:
     # image.repository is required
     repository: herculesproject/sgi-rep-service
-    # Empty to use sgi.image.pullPolicy
+    # Empty to use global.image.pullPolicy
     pullPolicy: ""
-    # Empty to use sgi.image.tag
+    # Empty to use global.image.tag
     tag: ""
 
   database:
@@ -1348,9 +1348,9 @@ sgi-com-service:
   image:
     # image.repository is required
     repository: herculesproject/sgi-com-service
-    # Empty to use sgi.image.pullPolicy
+    # Empty to use global.image.pullPolicy
     pullPolicy: ""
-    # Empty to use sgi.image.tag
+    # Empty to use global.image.tag
     tag: ""
 
   database:
@@ -1532,9 +1532,9 @@ sgi-cnf-service:
   image:
     # image.repository is required
     repository: herculesproject/sgi-cnf-service
-    # Empty to use sgi.image.pullPolicy
+    # Empty to use global.image.pullPolicy
     pullPolicy: ""
-    # Empty to use sgi.image.tag
+    # Empty to use global.image.tag
     tag: ""
 
   database:
@@ -1671,9 +1671,9 @@ sgi-prc-service:
   image:
     # image.repository is required
     repository: herculesproject/sgi-prc-service
-    # Empty to use sgi.image.pullPolicy
+    # Empty to use global.image.pullPolicy
     pullPolicy: ""
-    # Empty to use sgi.image.tag
+    # Empty to use global.image.tag
     tag: ""
 
   database:
@@ -1840,9 +1840,9 @@ sgi-keycloak:
   image:
     # image.repository is required
     repository: herculesproject/sgi-auth
-   # Empty to use sgi.image.pullPolicy
+   # Empty to use global.image.pullPolicy
     pullPolicy: ""
-    # Empty to use sgi.image.tag
+    # Empty to use global.image.tag
     tag: ""
 
   settings:
@@ -1977,9 +1977,9 @@ sgi-esb:
   image:
     # image.repository is required
     repository: herculesproject/sgi-esb-reference-imp
-    # Empty to use sgi.image.pullPolicy
+    # Empty to use global.image.pullPolicy
     pullPolicy: ""
-    # Empty to use sgi.image.tag
+    # Empty to use global.image.tag
     tag: ""
 
   imagePullSecrets: []
@@ -2150,10 +2150,22 @@ sgi-esb:
 ## Standalone implementation of SGP Service (Isn't available)
 sgp:
   enabled: false
+sgp-service:
+  replicaCount: 0
+
+  image:
+    # image.repository is required
+    repository: herculesproject/sgi-external-sgp-reference-imp
 
 ## Standalone implementation of SGEMP Service (Isn't available)
 sgemp:
   enabled: false
+sgemp-service:
+  replicaCount: 0
+
+  image:
+    # image.repository is required
+    repository: herculesproject/sgi-external-sgemp-reference-imp
 
 ## Standalone implementation of SGO Service (Partially used, don't disable it)
 sgo:
@@ -2164,9 +2176,9 @@ sgo-service:
   image:
     # image.repository is required
     repository: herculesproject/sgi-external-sgo-reference-imp
-    # Empty to use sgi.image.pullPolicy
+    # Empty to use global.image.pullPolicy
     pullPolicy: ""
-    # Empty to use sgi.image.tag
+    # Empty to use global.image.tag
     tag: ""
 
   # Database configuration
@@ -2299,6 +2311,12 @@ sgo-service:
 ## Standalone implementation of SGE Service (Isn't available)
 sge:
   enabled: false
+sge-service:
+  replicaCount: 0
+
+  image:
+    # image.repository is required
+    repository: herculesproject/sgi-external-sge-reference-imp
 
 ## Standalone implementation of SGO Service (Partially used, don't disable it)
 sgdoc:
@@ -2309,9 +2327,9 @@ sgdoc-service:
   image:
     # image.repository is required
     repository: herculesproject/sgi-external-sgdoc-reference-imp
-    # Empty to use sgi.image.pullPolicy
+    # Empty to use global.image.pullPolicy
     pullPolicy: ""
-    # Empty to use sgi.image.tag
+    # Empty to use global.image.tag
     tag: ""
 
   # Database configuration
