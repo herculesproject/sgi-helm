@@ -59,7 +59,7 @@ spec:
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ required "An image.repository value must be specified" .Values.image.repository }}:{{ required "Either image.tag or global.image.tag must be specified" (default .Values.global.image.tag .Values.image.tag) }}"
-          imagePullPolicy: {{ default .Values.global.image.pullPolicy (default "IfNotPresent" .Values.image.pullPolicy) }}
+          imagePullPolicy: {{ .Values.image.pullPolicy | default .Values.global.image.pullPolicy | default "IfNotPresent" }}
           # need to streamline this
           env:
           - name: SERVER_PORT
