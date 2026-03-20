@@ -226,6 +226,16 @@ entries:
   sgi-service:
   - apiVersion: v2
     appVersion: image
+    created: "2026-03-20T12:54:16.058600551Z"
+    description: A generic Helm Chart for SGI Spring services
+    digest: 199df632f3e439ab3df73371cd8ebc18df376e7babce6d34da25e34ebfdc84fe
+    name: sgi-service
+    type: application
+    urls:
+    - https://github.com/herculesproject/sgi-helm/releases/download/sgi-service-1.1.0/sgi-service-1.1.0.tgz
+    version: 1.1.0
+  - apiVersion: v2
+    appVersion: image
     created: "2026-02-25T17:55:47.131049711Z"
     description: A generic Helm Chart for SGI Spring services
     digest: 6cf3ed7779007d4e62ccab734220770f3d7a218c75634faafe9183cbb20e2110
@@ -305,6 +315,99 @@ entries:
     - https://github.com/herculesproject/sgi-helm/releases/download/sgi-service-0.1.10/sgi-service-0.1.10.tgz
     version: 0.1.10
   sgi-umbrella:
+  - apiVersion: v2
+    appVersion: umbrella
+    created: "2026-03-20T12:54:16.249489824Z"
+    dependencies:
+    - name: sgi-webapp
+      repository: file://../sgi-webapp
+      version: 1.0.1
+    - alias: sgi-usr-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 1.1.0
+    - alias: sgi-eer-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 1.1.0
+    - alias: sgi-eti-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 1.1.0
+    - alias: sgi-csp-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 1.1.0
+    - alias: sgi-pii-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 1.1.0
+    - alias: sgi-rel-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 1.1.0
+    - alias: sgi-tp-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 1.1.0
+    - alias: sgi-rep-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 1.1.0
+    - alias: sgi-com-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 1.1.0
+    - alias: sgi-cnf-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 1.1.0
+    - alias: sgi-prc-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 1.1.0
+    - name: sgi-keycloak
+      repository: file://../sgi-keycloak
+      version: 1.0.1
+    - name: sgi-esb
+      repository: file://../sgi-esb
+      version: 1.0.1
+    - alias: sgp-service
+      condition: sgp.enabled
+      name: sgi-esb-external
+      repository: file://../sgi-esb-external
+      version: 1.0.1
+    - alias: sgemp-service
+      condition: sgemp.enabled
+      name: sgi-esb-external
+      repository: file://../sgi-esb-external
+      version: 1.0.1
+    - alias: sgo-service
+      condition: sgo.enabled
+      name: sgi-esb-external
+      repository: file://../sgi-esb-external
+      version: 1.0.1
+    - alias: sge-service
+      condition: sge.enabled
+      name: sgi-esb-external
+      repository: file://../sgi-esb-external
+      version: 1.0.1
+    - alias: sgdoc-service
+      condition: sgdoc.enabled
+      name: sgi-esb-external
+      repository: file://../sgi-esb-external
+      version: 1.0.1
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: '@bitnami'
+      version: 12.1.9
+    description: An umbrella chart for deploying all SGI services.
+    digest: ca7b51ac82113338cd9e5ee25b73a4d1257ef3321b855cd81eb7b0e02c7e431d
+    name: sgi-umbrella
+    type: application
+    urls:
+    - https://github.com/herculesproject/sgi-helm/releases/download/sgi-umbrella-1.1.0/sgi-umbrella-1.1.0.tgz
+    version: 1.1.0
   - apiVersion: v2
     appVersion: umbrella
     created: "2026-02-25T17:55:47.343887393Z"
@@ -1213,4 +1316,4 @@ entries:
     urls:
     - https://github.com/herculesproject/sgi-helm/releases/download/sgi-webapp-0.1.6/sgi-webapp-0.1.6.tgz
     version: 0.1.6
-generated: "2026-02-25T17:55:47.513969624Z"
+generated: "2026-03-20T12:54:16.249614789Z"
