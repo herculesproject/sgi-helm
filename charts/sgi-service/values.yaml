@@ -121,3 +121,46 @@ strategy: {}
 # rollingUpdate:
 #   maxSurge: 1
 #   maxUnavailable: 0
+
+
+# Configuration for the startup probe
+# Controls how long Kubernetes waits for the application to start
+startupProbe:
+  # HTTP endpoint used to check application startup
+  path: /actuator/health/readiness
+  # Seconds to wait before starting probes
+  initialDelaySeconds: 60
+  # How often to perform the probe
+  periodSeconds: 10
+  # Timeout for each probe request
+  timeoutSeconds: 5
+  # Number of failures before considering startup failed
+  failureThreshold: 30
+
+# Configuration for the readiness probe
+# Determines when the application is ready to receive traffic
+readinessProbe:
+  # HTTP endpoint used to determine readiness
+  path: /actuator/health/readiness
+  # Seconds to wait before starting probes
+  initialDelaySeconds: 5
+  # How often to perform the probe
+  periodSeconds: 10
+  # Timeout for each probe request
+  timeoutSeconds: 5
+  # Number of failures before marking the pod as not ready
+  failureThreshold: 6
+
+# Configuration for the liveness probe
+# Determines if the application is still running and should be restarted if needed
+livenessProbe:
+  # HTTP endpoint used to check application health
+  path: /actuator/health/liveness
+  # Seconds to wait before starting probes
+  initialDelaySeconds: 15
+  # How often to perform the probe
+  periodSeconds: 20
+  # Timeout for each probe request
+  timeoutSeconds: 5
+  # Number of failures before restarting the container
+  failureThreshold: 3
