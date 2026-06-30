@@ -317,6 +317,99 @@ entries:
   sgi-umbrella:
   - apiVersion: v2
     appVersion: umbrella
+    created: "2026-06-30T08:23:27.132051432Z"
+    dependencies:
+    - name: sgi-webapp
+      repository: file://../sgi-webapp
+      version: 1.0.1
+    - alias: sgi-usr-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 1.1.0
+    - alias: sgi-eer-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 1.1.0
+    - alias: sgi-eti-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 1.1.0
+    - alias: sgi-csp-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 1.1.0
+    - alias: sgi-pii-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 1.1.0
+    - alias: sgi-rel-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 1.1.0
+    - alias: sgi-tp-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 1.1.0
+    - alias: sgi-rep-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 1.1.0
+    - alias: sgi-com-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 1.1.0
+    - alias: sgi-cnf-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 1.1.0
+    - alias: sgi-prc-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 1.1.0
+    - name: sgi-keycloak
+      repository: file://../sgi-keycloak
+      version: 1.0.1
+    - name: sgi-esb
+      repository: file://../sgi-esb
+      version: 1.0.1
+    - alias: sgp-service
+      condition: sgp.enabled
+      name: sgi-esb-external
+      repository: file://../sgi-esb-external
+      version: 1.0.1
+    - alias: sgemp-service
+      condition: sgemp.enabled
+      name: sgi-esb-external
+      repository: file://../sgi-esb-external
+      version: 1.0.1
+    - alias: sgo-service
+      condition: sgo.enabled
+      name: sgi-esb-external
+      repository: file://../sgi-esb-external
+      version: 1.0.1
+    - alias: sge-service
+      condition: sge.enabled
+      name: sgi-esb-external
+      repository: file://../sgi-esb-external
+      version: 1.0.1
+    - alias: sgdoc-service
+      condition: sgdoc.enabled
+      name: sgi-esb-external
+      repository: file://../sgi-esb-external
+      version: 1.0.1
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: '@bitnami'
+      version: 12.1.9
+    description: An umbrella chart for deploying all SGI services.
+    digest: 1fa0794ac1e0a28f5c1a43c5108001cf69c4dc96ba7ee5aa73127da455181208
+    name: sgi-umbrella
+    type: application
+    urls:
+    - https://github.com/herculesproject/sgi-helm/releases/download/sgi-umbrella-1.2.0/sgi-umbrella-1.2.0.tgz
+    version: 1.2.0
+  - apiVersion: v2
+    appVersion: umbrella
     created: "2026-03-20T12:54:16.249489824Z"
     dependencies:
     - name: sgi-webapp
@@ -1316,4 +1409,4 @@ entries:
     urls:
     - https://github.com/herculesproject/sgi-helm/releases/download/sgi-webapp-0.1.6/sgi-webapp-0.1.6.tgz
     version: 0.1.6
-generated: "2026-03-20T12:54:16.249614789Z"
+generated: "2026-06-30T08:23:27.132160884Z"
