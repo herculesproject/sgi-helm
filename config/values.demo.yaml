@@ -217,6 +217,12 @@ sgi-csp-service:
     ## eti-service base url
     - name: SGI_REST_API_ETI-URL
       value: "http://sgi-sgi-eti-service"
+    ## pii-service base url
+    - name: SGI_REST_API_PII-URL
+      value: "http://sgi-sgi-pii-service"
+    ## rel-service base url
+    - name: SGI_REST_API_REL-URL
+      value: "http://sgi-sgi-rel-service"
     ## rep-service base url
     - name: SGI_REST_API_REP-URL
       value: "http://sgi-sgi-rep-service"
@@ -229,6 +235,9 @@ sgi-csp-service:
     ## tp-service base url
     - name: SGI_REST_API_TP-URL
       value: "http://sgi-sgi-tp-service"
+    ## ESB sge base url
+    - name: SGI_REST_API_SGE-URL
+      value: "http://sgi-sgi-esb/sge"
     ## ESB sgemp base url
     - name: SGI_REST_API_SGEMP-URL
       value: "http://sgi-sgi-esb/sgemp"
