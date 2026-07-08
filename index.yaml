@@ -145,6 +145,16 @@ entries:
   sgi-keycloak:
   - apiVersion: v2
     appVersion: image
+    created: "2026-07-08T13:08:52.104705313Z"
+    description: A Helm chart for the Keycloak service for SGI.
+    digest: f83e670c0f46ca0e8d79dc57de64395564ef6fab0021482dc739cf1d39530b6c
+    name: sgi-keycloak
+    type: application
+    urls:
+    - https://github.com/herculesproject/sgi-helm/releases/download/sgi-keycloak-2.0.0/sgi-keycloak-2.0.0.tgz
+    version: 2.0.0
+  - apiVersion: v2
+    appVersion: image
     created: "2026-02-25T17:55:46.979582758Z"
     description: A Helm chart for the Keycloak service for SGI.
     digest: affd8a411837b317e35e4ea9b47afe1d432632f92f91fc749c212020a18e0b52
@@ -315,6 +325,99 @@ entries:
     - https://github.com/herculesproject/sgi-helm/releases/download/sgi-service-0.1.10/sgi-service-0.1.10.tgz
     version: 0.1.10
   sgi-umbrella:
+  - apiVersion: v2
+    appVersion: umbrella
+    created: "2026-07-08T13:08:52.337602176Z"
+    dependencies:
+    - name: sgi-webapp
+      repository: file://../sgi-webapp
+      version: 1.0.1
+    - alias: sgi-usr-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 1.1.0
+    - alias: sgi-eer-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 1.1.0
+    - alias: sgi-eti-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 1.1.0
+    - alias: sgi-csp-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 1.1.0
+    - alias: sgi-pii-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 1.1.0
+    - alias: sgi-rel-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 1.1.0
+    - alias: sgi-tp-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 1.1.0
+    - alias: sgi-rep-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 1.1.0
+    - alias: sgi-com-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 1.1.0
+    - alias: sgi-cnf-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 1.1.0
+    - alias: sgi-prc-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 1.1.0
+    - name: sgi-keycloak
+      repository: file://../sgi-keycloak
+      version: 2.0.0
+    - name: sgi-esb
+      repository: file://../sgi-esb
+      version: 1.0.1
+    - alias: sgp-service
+      condition: sgp.enabled
+      name: sgi-esb-external
+      repository: file://../sgi-esb-external
+      version: 1.0.1
+    - alias: sgemp-service
+      condition: sgemp.enabled
+      name: sgi-esb-external
+      repository: file://../sgi-esb-external
+      version: 1.0.1
+    - alias: sgo-service
+      condition: sgo.enabled
+      name: sgi-esb-external
+      repository: file://../sgi-esb-external
+      version: 1.0.1
+    - alias: sge-service
+      condition: sge.enabled
+      name: sgi-esb-external
+      repository: file://../sgi-esb-external
+      version: 1.0.1
+    - alias: sgdoc-service
+      condition: sgdoc.enabled
+      name: sgi-esb-external
+      repository: file://../sgi-esb-external
+      version: 1.0.1
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: '@bitnami'
+      version: 12.1.9
+    description: An umbrella chart for deploying all SGI services.
+    digest: 04b2529574ca12f73028921a75ccc8b951d546c90af2db602b832deaf1ee733a
+    name: sgi-umbrella
+    type: application
+    urls:
+    - https://github.com/herculesproject/sgi-helm/releases/download/sgi-umbrella-1.3.0/sgi-umbrella-1.3.0.tgz
+    version: 1.3.0
   - apiVersion: v2
     appVersion: umbrella
     created: "2026-06-30T08:23:27.132051432Z"
@@ -1409,4 +1512,4 @@ entries:
     urls:
     - https://github.com/herculesproject/sgi-helm/releases/download/sgi-webapp-0.1.6/sgi-webapp-0.1.6.tgz
     version: 0.1.6
-generated: "2026-06-30T08:23:27.132160884Z"
+generated: "2026-07-08T13:08:52.33771817Z"
