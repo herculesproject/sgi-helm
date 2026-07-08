@@ -739,39 +739,41 @@ sgi-keycloak:
     keycloakUser: "admin"
     # Admin password
     keycloakPassword: "password"
-    # Enable running behind a proxy
-    proxyAddressForwarding: "true"
-    # Migration strategy when importing a realm on boot
-    keycloakMigrationStrategy: "IGNORE_EXISTING"
+    # Proxy headers to trust ("xforwarded" or "forwarded")
+    proxyHeaders: "xforwarded"
+    # Realm import mode. if-absent: import only if the realm does not already exist. none: disable import
+    importMode: "if-absent"
 
   ## Aditional Enviroment Variables (See Spring Boot Documentation) for additional supported variables
   ## Values can be provided from secrets, see https://kubernetes.io/docs/concepts/configuration/secret/#using-secrets-as-environment-variables
   extraEnvVariables:
-    ## Database vendor. Valid values: h2 or postgres or oracle
-    - name: DB_VENDOR
+    ## Keep serving Keycloak under /auth so the URLs used by the other SGI services keep working
+    - name: KC_HTTP_RELATIVE_PATH
+      value: "/auth"
+    ## Database vendor. Valid values: postgres | mssql | oracle
+    - name: KC_DB
       value: "postgres"
-    ## Database hostname
-    - name: DB_ADDR
-      value: "sgi-postgresql"
-    ## Database port
-    - name: DB_PORT
-      value: "5432"
-    ## Database name.
-    ## Oracle database should be prefixed with ":" or "/", to connect in SID or Service mode respectively
-    - name: DB_DATABASE
-      value: "db"
+    ## JDBC connection URL
+    - name: KC_DB_URL
+      value: "jdbc:postgresql://sgi-postgresql:5432/db"
     ## Database schema
-    - name: DB_SCHEMA
+    - name: KC_DB_SCHEMA
       value: "auth"
     ## Database username
-    - name: DB_USER
+    - name: KC_DB_USERNAME
       value: "auth"
     ## Database password
-    - name: DB_PASSWORD
+    - name: KC_DB_PASSWORD
       value: "auth"
 
-  configMap:
-    sgiRealmJson: "config/sgi-realm.json"
+  # Realm source configuration
+  realmConfigMap:
+    # Mount a ConfigMap with custom realm configuration (true) or use base realm from Docker image (false)
+    enabled: true
+    # Name of the ConfigMap containing the sgi-realm.json file
+    name: sgi-realm-config
+    # ConfigMap key that contains the realm JSON
+    key: "sgi-realm.json"
 
   ## Should be enabled and set the correct hostname to be accesible from outside
   ingress:

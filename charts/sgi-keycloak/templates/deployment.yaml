@@ -46,25 +46,37 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ required "An image.repository value must be specified" .Values.image.repository }}:{{ required "Either image.tag or global.image.tag must be specified" (default .Values.global.image.tag .Values.image.tag) }}"
           imagePullPolicy: {{ .Values.image.pullPolicy | default .Values.global.image.pullPolicy | default "IfNotPresent" }}
+          args:
+          {{- if eq (.Values.settings.importMode | default "if-absent") "if-absent" }}
+          - start
+          - --import-realm
+          {{- else }}
+          - start
+          {{- end }}
           env:
-          - name: KEYCLOAK_USER
+          - name: KC_BOOTSTRAP_ADMIN_USERNAME
             {{- if kindIs "map" .Values.settings.keycloakUser }}
             {{- toYaml .Values.settings.keycloakUser | nindent 12 }}
             {{- else }}
             value: {{ .Values.settings.keycloakUser }}
             {{- end }}
-          - name: KEYCLOAK_PASSWORD
+          - name: KC_BOOTSTRAP_ADMIN_PASSWORD
             {{- if kindIs "map" .Values.settings.keycloakPassword }}
             {{- toYaml .Values.settings.keycloakPassword | nindent 12 }}
             {{- else }}
             value: {{ .Values.settings.keycloakPassword }}
             {{- end }}
-          - name: PROXY_ADDRESS_FORWARDING
-            value: {{ quote .Values.settings.proxyAddressForwarding }}
-          - name: KEYCLOAK_MIGRATION_STRATEGY
-            value: {{ .Values.settings.keycloakMigrationStrategy }}
-          - name: KEYCLOAK_IMPORT
-            value: /realm/sgi-realm.json
+          - name: KC_PROXY_HEADERS
+            value: {{ .Values.settings.proxyHeaders | default "xforwarded" | quote }}
+          - name: KC_HTTP_ENABLED
+            value: {{ .Values.settings.httpEnabled | default true | quote }}
+          {{- with .Values.settings.hostname }}
+          - name: KC_HOSTNAME
+            value: {{ . | quote }}
+          {{- else }}
+          - name: KC_HOSTNAME_STRICT
+            value: "false"
+          {{- end }}
           {{- if .Values.extraEnvVariables }}
             {{- toYaml .Values.extraEnvVariables | nindent 10 }}
           {{- end }}
@@ -72,23 +84,32 @@ spec:
             - name: http
               containerPort: 8080
               protocol: TCP
+            - name: management
+              containerPort: 9000
+              protocol: TCP
           {{- if .Values.realmConfigMap.enabled }}
           volumeMounts:
           - name: realm-config
-            mountPath: /realm
+            mountPath: /opt/keycloak/data/import
             readOnly: true
           {{- end }}
+          startupProbe:
+            httpGet:
+              path: /health/started
+              port: management
+            periodSeconds: 10
+            failureThreshold: 90
           livenessProbe:
             httpGet:
-              path: /auth/
-              port: http
-            initialDelaySeconds: 300
+              path: /health/live
+              port: management
+            periodSeconds: 10
             timeoutSeconds: 5
           readinessProbe:
             httpGet:
-              path: /auth/realms/master
-              port: http
-            initialDelaySeconds: 30
+              path: /health/ready
+              port: management
+            periodSeconds: 10
             timeoutSeconds: 1
           resources:
             {{- toYaml .Values.resources | nindent 12 }}

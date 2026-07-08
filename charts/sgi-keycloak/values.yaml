@@ -19,13 +19,52 @@ image:
   tag: null
 
 settings:
+  # Bootstrap admin username
   keycloakUser: "admin"
-  keycloakPassword: "password"
-  proxyAddressForwarding: "true"
-  keycloakMigrationStrategy: "OVERWRITE_EXISTING"
 
+  # Bootstrap admin password
+  keycloakPassword: "password"
+
+  # Proxy headers to trust ("xforwarded" or "forwarded")
+  proxyHeaders: "xforwarded"
+
+  # Enable HTTP when running behind a reverse proxy that terminates TLS
+  httpEnabled: true
+
+  # Realm import mode.
+  #
+  # Available values:
+  #   if-absent:  Import the realm only if it does not already exist (default)
+  #   none:       Disable automatic realm import
+  importMode: "if-absent"
+
+# Additional environment variables
+#
+# Example (SQL Server):
+# extraEnvVariables:
+#   - name: KC_DB
+#     value: "mssql"                 # oracle | mssql | postgres
+#   - name: KC_DB_URL
+#     value: "jdbc:sqlserver://<host>:1433;databaseName=<db>;trustServerCertificate=true"
+#     # Oracle service: jdbc:oracle:thin:@//<host>:<port>/<service>
+#     # Oracle SID:     jdbc:oracle:thin:@<host>:<port>:<sid>
+#     # PostgreSQL:     jdbc:postgresql://<host>:<port>/<db>
+#   - name: KC_DB_SCHEMA
+#     value: "AUTH_SGI"
+#   - name: KC_DB_USERNAME
+#     valueFrom:
+#       secretKeyRef:
+#         name: sgi-auth-db-credentials
+#         key: username
+#   - name: KC_DB_PASSWORD
+#     valueFrom:
+#       secretKeyRef:
+#         name: sgi-auth-db-credentials
+#         key: password
+#   # Optional Oracle connection timeout
+#   # - name: KC_DB_URL_PROPERTIES
+#   #   value: "?oracle.net.CONNECT_TIMEOUT=61000"
 extraEnvVariables: {}
-# Aditional Enviroment Variables
 
 imagePullSecrets: []
 nameOverride: ""
@@ -62,6 +101,17 @@ securityContext: {}
 service:
   type: ClusterIP
   port: 80
+
+# Management interface configuration.
+#
+# Keycloak exposes health and metrics endpoints on port 9000.
+# The management interface is never exposed through the public ingress.
+management:
+  service:
+    # Create an internal ClusterIP Service for the management port
+    enabled: false
+    port: 9000
+    annotations: {}
 
 ingress:
   enabled: false
@@ -119,7 +169,7 @@ realmConfigMap:
   #     --from-file=sgi-realm.json=./my-sgi-realm.json \
   #     -n <namespace>
   enabled: false
-  
+ 
   # Name of the ConfigMap containing the sgi-realm.json file
   #
   # Example to create an external ConfigMap:

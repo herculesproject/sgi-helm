@@ -1,0 +1,22 @@
+{{- if .Values.management.service.enabled }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "sgi-keycloak.fullname" . }}-management
+  labels:
+    {{- include "sgi-keycloak.labels" . | nindent 4 }}
+    app.kubernetes.io/component: management
+  {{- with .Values.management.service.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  type: ClusterIP
+  ports:
+    - port: {{ .Values.management.service.port | default 9000 }}
+      targetPort: management
+      protocol: TCP
+      name: management
+  selector:
+    {{- include "sgi-keycloak.selectorLabels" . | nindent 4 }}
+{{- end }}
